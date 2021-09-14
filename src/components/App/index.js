@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 
 import Header from '../Header';
 import Home from '../Home';
-import QuizzScreen from '../QuizzScreen';
+import QuizScreen from '../../containers/Quizscreen';
 import ResultScreen from '../ResultScreen';
 import Footer from '../Footer';
 
@@ -14,14 +14,14 @@ const App = ({loadingCountries, fetchAllCountries}) => {
   useEffect(fetchAllCountries, [fetchAllCountries]);
 
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/quizz">
-          <QuizzScreen />
+        <Route exact path="/quiz">
+          <QuizScreen />
         </Route>
         <Route exact path="/resultat">
           <ResultScreen />

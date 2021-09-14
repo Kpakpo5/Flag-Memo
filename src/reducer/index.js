@@ -1,4 +1,4 @@
-import { SAVE_ALL_COUNTRIES } from "../actions";
+import { SAVE_ALL_COUNTRIES, CHANGE } from "../actions";
 
 export const initialState = {
   loadingCountries: true,
@@ -21,6 +21,12 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           countries: action.countries,
           loadingCountries: false,
+        };
+      
+      case CHANGE:
+        return {
+          ...state,
+          [action.key]: action.value,
         };
 
       default:
