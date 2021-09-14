@@ -1,8 +1,9 @@
-import { SAVE_ALL_COUNTRIES, CHANGE } from "../actions";
+import { SAVE_ALL_COUNTRIES, CHANGE, SAVE_COUNTRY } from "../actions";
 
 export const initialState = {
   loadingCountries: true,
   countries: [],
+  inputValue:"",
   currentCountry: {},
   roundStarted: false,
   round : 0,
@@ -23,10 +24,16 @@ const reducer = (state = initialState, action = {}) => {
           loadingCountries: false,
         };
       
+      case SAVE_COUNTRY:
+        return {
+          ...state,
+          currentCountry: action.country,
+        }
+
       case CHANGE:
         return {
           ...state,
-          [action.key]: action.value,
+          inputValue: action.value,
         };
 
       default:

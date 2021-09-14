@@ -1,19 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import QuizForm from '../QuizForm';
+import QuizForm from '../../containers/Quizform';
 import './style.scss';
 
 import { getRandomItem } from '../../utils';
 
-const QuizScreen = ({countries}) => {
+const QuizScreen = ({countries, saveCountry}) => {
   const currentCountry = getRandomItem(countries);
-  const currentflag = currentCountry.flag;
-    console.log(currentCountry);
-  return (
-    <div className="quizscreen">
-      <span>Drapeau 1/1</span>
+  const currentFlag = currentCountry.flag;
+  saveCountry(currentCountry);
+  
+    return (
+      <div className="quizscreen">
+        <span>Drapeau 1/1</span>
       <div className="flag">
-        <img className="flag-pic" src={currentflag} alt="drapeau aléatoire" />
+        <img className="flag-pic" src={currentFlag} alt="drapeau aléatoire" />
       </div>
       <QuizForm />
       <button>Drapeau suivant</button>
@@ -24,6 +25,7 @@ const QuizScreen = ({countries}) => {
 
 QuizScreen.propTypes = {
   countries: PropTypes.array.isRequired,
+  saveCountry: PropTypes.func.isRequired,
 };
 
 export default QuizScreen;

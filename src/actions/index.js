@@ -9,9 +9,15 @@ export const saveAllCountries = (countries) => ({
   countries,
 });
 
+export const SAVE_COUNTRY = 'SAVE_COUNTRY';
+export const saveCountry = (country) => ({
+  type: SAVE_COUNTRY,
+  country,
+})
+
+
 export const CHANGE = 'CHANGE';
-export const change = (key, value) => ({
+export const change = (value) => ({
   type: CHANGE,
   value,
-  key,
 });

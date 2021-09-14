@@ -1,18 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Field from '../../containers/Field';
 import './style.scss';
 
-const QuizForm = () => {
+const QuizForm = ({ currentCountry, inputValue, changeValue }) => {
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+    console.log(inputValue);
+  };
+
+  const handleChange = (event) => {
+    changeValue(event.target.value);
+  };
+
   return (
   <div className="quiz">
     <form className="quiz-form" onSubmit={handleSubmit}>
       <p>&Agrave; quel pays appartient ce drapeau</p>
       <div>
-        <Field id="country" name="country"/>
+        <input 
+        className="quizz-form-input"
+        name="country"
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        />
       </div>
       <button 
         className="quiz-form-button" 
