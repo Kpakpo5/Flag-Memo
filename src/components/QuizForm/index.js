@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from '../../containers/Input'
 import './style.scss';
 
-const QuizForm = ({ currentCountry, inputValue, changeValue }) => {
-  
+const QuizForm = ({
+  currentCountry,
+  inputValue,
+  startMCQ,
+  halfRound,
+  doubleIncrement,
+  setInputStyle
+}) => {
+  const correctAnswer = currentCountry.translations.fra.common.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  console.log(correctAnswer);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputValue);
-  };
-
-  const handleChange = (event) => {
-    changeValue(event.target.value);
+    const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    console.log(userAnswer);
+    if(userAnswer === correctAnswer) {
+      doubleIncrement();
+      setInputStyle('correct');
+    } else {
+      setInputStyle('wrong');
+    }
+    startMCQ();
   };
 
   return (
@@ -18,16 +32,10 @@ const QuizForm = ({ currentCountry, inputValue, changeValue }) => {
     <form className="quiz-form" onSubmit={handleSubmit}>
       <p>&Agrave; quel pays appartient ce drapeau</p>
       <div>
-        <input 
-        className="quizz-form-input"
-        name="country"
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        />
+        <Input />
       </div>
       <button 
-        className="quiz-form-button" 
+        className={halfRound ? "quiz-form-button-nodisplay" : "quiz-form-button"}
         type="submit"
       >
         Valider
@@ -37,6 +45,7 @@ const QuizForm = ({ currentCountry, inputValue, changeValue }) => {
   );
 }
 QuizForm.propTypes = {
-
+  currentCountry: PropTypes.object.isRequired,
+  inputValue: PropTypes.string.isRequired,
 }
 export default QuizForm;

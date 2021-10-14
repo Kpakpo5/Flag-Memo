@@ -2,7 +2,7 @@ import axios from 'axios';
 import { FETCH_ALL_COUNTRIES, saveAllCountries } from '../actions';
 
 const api = axios.create({
-    baseURL: 'https://restcountries.eu/rest/v2',
+    baseURL: 'https://restcountries.com/v3.1',
   });
   const ajax = (store) => (next) => (action) => {
     switch (action.type) {
@@ -15,7 +15,7 @@ const api = axios.create({
           .catch((error) => {
 
             console.log(error);
-            alert('Une erreur este survenue');
+            alert('Une erreur est survenue');
           })
           .finally(() => {
             //

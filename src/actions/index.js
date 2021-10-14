@@ -13,11 +13,31 @@ export const SAVE_COUNTRY = 'SAVE_COUNTRY';
 export const saveCountry = (country) => ({
   type: SAVE_COUNTRY,
   country,
-})
-
+});
 
 export const CHANGE = 'CHANGE';
 export const change = (value) => ({
   type: CHANGE,
   value,
+});
+
+export const START_MCQ = 'START_MCQ';
+export const startMCQ = () => ({
+  type: START_MCQ,
+});
+
+export const INCREMENT = 'INCREMENT';
+export const increment = () => ({
+  type: INCREMENT,
+});
+
+export const DOUBLE_INCREMENT = 'DOUBLE_INCREMENT';
+export const doubleIncrement = () => ({
+  type: DOUBLE_INCREMENT,
+});
+
+export const SET_INPUT_STYLE = 'SET_INPUT_STYLE';
+export const setInputStyle = (style) => ({
+  type: SET_INPUT_STYLE,
+  style,
 });
