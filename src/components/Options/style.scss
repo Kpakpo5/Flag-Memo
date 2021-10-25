@@ -4,3 +4,20 @@
   width: 60%;
   margin: auto;
 }
+
+.option {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.option.wrong {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+.option.true {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}

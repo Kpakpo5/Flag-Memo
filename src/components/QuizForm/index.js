@@ -22,7 +22,7 @@ const QuizForm = ({
       doubleIncrement();
       setInputStyle('correct');
     } else {
-      setInputStyle('wrong');
+      setInputStyle('incorrect');
     }
     startMCQ();
   };

@@ -10,7 +10,7 @@ const MCQ = ({ halfRound, inputStyle, currentCountry, inputValue, countries }) =
 
   return (
   <div className={halfRound ? "mcq" : "mcq-nodisplay"}>
-    <p>{ (inputStyle === 'correct') ? `Bravo! ${currentCountryName} est bien la bonne réponse.
+    <p>{ (inputStyle === 'correct') ? `Bravo! ${currentCountryName} est bien la bonne réponse.<br>
       Quelle est sa capitale?` :
       `${inputValue} n'est pas la bonne réponse, la réponse correcte est ${currentCountryName}.
       Connaissez-vous sa capitale ?`}

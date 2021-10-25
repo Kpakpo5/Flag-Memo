@@ -5,7 +5,9 @@ import {
   START_MCQ,
   DOUBLE_INCREMENT,
   INCREMENT,
-  SET_INPUT_STYLE
+  SET_INPUT_STYLE,
+  SET_OPTION_IS_SELECTED,
+  SET_SELECTED_ID,
 } from "../actions";
 
 export const initialState = {
@@ -20,7 +22,8 @@ export const initialState = {
   gameStarted: false,
   gameOver: false,
   score: 0,
-  optionSelected: false,
+  optionIsSelected: false,
+  selectedId: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -69,6 +72,17 @@ const reducer = (state = initialState, action = {}) => {
           inputStyle: action.style,
         }
 
+      case SET_OPTION_IS_SELECTED:
+        return {
+          ...state,
+          optionIsSelected: true,
+        }
+
+      case SET_SELECTED_ID:
+        return {
+          ...state,
+          selectedId: action.id
+        }
       default:
         return state;
     }

@@ -41,3 +41,14 @@ export const setInputStyle = (style) => ({
   type: SET_INPUT_STYLE,
   style,
 });
+
+export const SET_OPTION_IS_SELECTED = 'SET_OPTION_IS_SELECTED';
+export const setOptionIsSelected = () => ({
+  type: SET_OPTION_IS_SELECTED,
+});
+
+export const SET_SELECTED_ID = 'SET_SELECTED_ID';
+export const setSelectedId = (id) => ({
+  type: SET_SELECTED_ID,
+  id,
+})
