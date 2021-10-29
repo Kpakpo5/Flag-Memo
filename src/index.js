@@ -10,9 +10,9 @@ import reportWebVitals from './reportWebVitals';
 const rootReactElement = (
   <Router>
     <Provider store={store}>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <App />
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </Provider>
   </Router>
   );

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Option from '../../components/Options/Option';
-import { setOptionIsSelected, increment, setSelectedId } from '../../actions';
+import { setOptionIsSelected, increment, getSelectedId } from '../../actions';
 
 const mapStateToProps = (state) => ({
   optionIsSelected : state.optionIsSelected,
@@ -15,8 +15,8 @@ const mapDispatchToProps = (dispatch) => ({
   increment: () => {
     dispatch(increment());
   },
-  setSelectedId : (id) => {
-    dispatch(setSelectedId(id));
+  getSelectedId : (id) => {
+    dispatch(getSelectedId(id));
   }
 });
 

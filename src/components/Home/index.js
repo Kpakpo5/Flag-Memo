@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import Button from '../../containers/Button';
 
 import './style.scss';
 
 const Home = () => {
-  const history = useHistory();
-  const handleClick = () => {
-    history.push('/quiz');
-  }
-
   return (
   <div>
-    <button onClick={handleClick}>Commencer</button>
+    <Button text="Commencer" styles="start" />
   </div>
   )
 };

@@ -9,7 +9,7 @@ const Option = ({
   increment,
   id,
   selectedId,
-  setSelectedId 
+  getSelectedId 
 }) => {
   
   const handleClick = (e) => {
@@ -18,7 +18,7 @@ const Option = ({
     console.log(id);
     console.log(chosenId);
     setOptionIsSelected();
-    setSelectedId(chosenId);
+    getSelectedId(chosenId);
     if (e.target.innerText === correctAnswer) {
       increment();
     }
@@ -44,7 +44,7 @@ const Option = ({
 };
 
 Option.propTypes = {
-  optionSelected: PropTypes.bool.isRequired,
+  optionIsSelected: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
 };
 

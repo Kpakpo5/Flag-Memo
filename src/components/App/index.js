@@ -10,7 +10,7 @@ import Footer from '../Footer';
 
 import './style.scss';
 
-const App = ({loadingCountries, fetchAllCountries}) => {
+const App = ({ fetchAllCountries }) => {
   useEffect(fetchAllCountries, [fetchAllCountries]);
 
   return (

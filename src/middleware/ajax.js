@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_ALL_COUNTRIES, saveAllCountries } from '../actions';
+import { FETCH_ALL_COUNTRIES, saveCountries } from '../actions';
 
 const api = axios.create({
     baseURL: 'https://restcountries.com/v3.1',
@@ -10,7 +10,7 @@ const api = axios.create({
         api.get('/all')
           .then((response) => {
             console.log(response);
-            store.dispatch(saveAllCountries(response.data));
+            store.dispatch(saveCountries(response.data));
           })
           .catch((error) => {
 

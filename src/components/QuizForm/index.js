@@ -30,7 +30,7 @@ const QuizForm = ({
   return (
   <div className="quiz">
     <form className="quiz-form" onSubmit={handleSubmit}>
-      <p>&Agrave; quel pays appartient ce drapeau</p>
+      <p>&Agrave; quel pays appartient ce drapeau?</p>
       <div>
         <Input />
       </div>

@@ -15,7 +15,7 @@ const MCQ = ({ halfRound, inputStyle, currentCountry, inputValue, countries }) =
       `${inputValue} n'est pas la bonne réponse, la réponse correcte est ${currentCountryName}.
       Connaissez-vous sa capitale ?`}
     </p>
-    <Options />
+   {currentCountry && <Options />}
   </div>
 );
 };

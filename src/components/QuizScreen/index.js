@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuizForm from '../../containers/Quizform';
 import MCQ from '../../containers/MCQ';
+import Button from '../../containers/Button';
 import './style.scss';
 
 import { getRandomItem } from '../../utils';
@@ -10,7 +11,10 @@ const QuizScreen = ({
   countries,
   saveCountry,
 }) => {
-  const currentCountry = getRandomItem(countries);
+  const relevantCountries = countries.filter(country =>
+    country.capital !== undefined);
+  console.log(relevantCountries);
+  const currentCountry = getRandomItem(relevantCountries);
   const currentFlag = currentCountry.flags.svg;
   saveCountry(currentCountry);
   
@@ -22,8 +26,8 @@ const QuizScreen = ({
         </div>
       <QuizForm />
       <MCQ />
-      <button>Drapeau suivant</button>
-      <button>Abandonner</button>
+      <Button text="Drapeau suivant" styles="next" />
+      <Button text="Abandonner" styles="quit" />
       </div>
   );
 };

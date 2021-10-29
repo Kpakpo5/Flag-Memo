@@ -1,0 +1,19 @@
+.next {
+  background-color: rgb(164, 180, 19);
+  margin: 1rem;
+  &.nodisplay {
+    display: none;
+  }
+}
+
+.quit {
+  background-color: rgb(236, 22, 22);
+  margin: 1rem;
+}
+
+.start {
+  background-color: rgb(164, 180, 19);
+  &.nodisplay {
+    display: none;
+  }
+}

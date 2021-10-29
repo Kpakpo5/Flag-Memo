@@ -3,9 +3,9 @@ export const fetchAllCountries = () => ({
   type: FETCH_ALL_COUNTRIES,
 });
 
-export const SAVE_ALL_COUNTRIES = 'SAVE_ALL_COUNTRIES';
-export const saveAllCountries = (countries) => ({
-  type: SAVE_ALL_COUNTRIES,
+export const SAVE_COUNTRIES = 'SAVE_COUNTRIES';
+export const saveCountries = (countries) => ({
+  type: SAVE_COUNTRIES,
   countries,
 });
 
@@ -47,8 +47,18 @@ export const setOptionIsSelected = () => ({
   type: SET_OPTION_IS_SELECTED,
 });
 
-export const SET_SELECTED_ID = 'SET_SELECTED_ID';
-export const setSelectedId = (id) => ({
-  type: SET_SELECTED_ID,
+export const GET_SELECTED_ID = 'GET_SELECTED_ID';
+export const getSelectedId = (id) => ({
+  type: GET_SELECTED_ID,
   id,
-})
+});
+
+export const SET_NEXT_ROUND = 'SET_NEXT_ROUND';
+export const setNextRound = () => ({
+  type: SET_NEXT_ROUND,
+});
+
+export const RESET = 'RESET';
+export const reset = () => ({
+  type: RESET,
+});

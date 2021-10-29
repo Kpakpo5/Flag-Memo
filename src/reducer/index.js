@@ -1,5 +1,5 @@
 import { 
-  SAVE_ALL_COUNTRIES,
+  SAVE_COUNTRIES,
   CHANGE,
   SAVE_COUNTRY,
   START_MCQ,
@@ -7,7 +7,9 @@ import {
   INCREMENT,
   SET_INPUT_STYLE,
   SET_OPTION_IS_SELECTED,
-  SET_SELECTED_ID,
+  GET_SELECTED_ID,
+  SET_NEXT_ROUND,
+  RESET,
 } from "../actions";
 
 export const initialState = {
@@ -29,7 +31,7 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
 
-      case SAVE_ALL_COUNTRIES:
+      case SAVE_COUNTRIES:
         return {
           ...state,
           countries: action.countries,
@@ -78,10 +80,42 @@ const reducer = (state = initialState, action = {}) => {
           optionIsSelected: true,
         }
 
-      case SET_SELECTED_ID:
+      case GET_SELECTED_ID:
         return {
           ...state,
           selectedId: action.id
+        }
+
+      case SET_NEXT_ROUND:
+        return {
+          ...state,
+          countries: state.countries.filter(country => 
+            country.name.common !== state.currentCountry.name.common),
+          inputValue:"",
+          inputStyle: "default",
+          currentCountry: {},
+          roundStarted: false,
+          halfRound: false,
+          gameStarted: false,
+          optionIsSelected: false,
+          selectedId: null,
+        }
+      
+      case RESET:
+        return {
+          ...state,
+          loadingCountries: true,
+          inputValue:"",
+          inputStyle: "default",
+          currentCountry: {},
+          roundStarted: false,
+          round : 0,
+          halfRound: false,
+          gameStarted: false,
+          gameOver: false,
+          score: 0,
+          optionIsSelected: false,
+          selectedId: null,
         }
       default:
         return state;
