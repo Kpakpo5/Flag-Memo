@@ -27,6 +27,7 @@ const QuizScreen = ({
       <QuizForm />
       <MCQ />
       <Button text="Drapeau suivant" styles="next" />
+      <Button text="Votre score" styles="result" />
       <Button text="Abandonner" styles="quit" />
       </div>
   );

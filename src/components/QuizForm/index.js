@@ -11,14 +11,16 @@ const QuizForm = ({
   doubleIncrement,
   setInputStyle
 }) => {
-  const correctAnswer = currentCountry.translations.fra.common.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  console.log(correctAnswer);
+  const correctCommonAnswer = currentCountry.translations.fra.common.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const correctOfficialAnswer = currentCountry.translations.fra.official.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  console.log(correctCommonAnswer);
+  console.log(correctOfficialAnswer);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputValue);
     const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     console.log(userAnswer);
-    if(userAnswer === correctAnswer) {
+    if(userAnswer === correctCommonAnswer || userAnswer === correctOfficialAnswer) {
       doubleIncrement();
       setInputStyle('correct');
     } else {
@@ -28,12 +30,10 @@ const QuizForm = ({
   };
 
   return (
-  <div className="quiz">
+  <div className="quiz-form-container">
     <form className="quiz-form" onSubmit={handleSubmit}>
-      <p>&Agrave; quel pays appartient ce drapeau?</p>
-      <div>
+      <p>&Agrave; quel pays appartient ce drapeau ?</p>
         <Input />
-      </div>
       <button 
         className={halfRound ? "quiz-form-button-nodisplay" : "quiz-form-button"}
         type="submit"

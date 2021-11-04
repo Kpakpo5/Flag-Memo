@@ -9,7 +9,9 @@ const Option = ({
   increment,
   id,
   selectedId,
-  getSelectedId 
+  getSelectedId,
+  round,
+  setGameOver,
 }) => {
   
   const handleClick = (e) => {
@@ -19,6 +21,9 @@ const Option = ({
     console.log(chosenId);
     setOptionIsSelected();
     getSelectedId(chosenId);
+    if (round === 5) {
+      setGameOver();
+    } 
     if (e.target.innerText === correctAnswer) {
       increment();
     }
@@ -46,6 +51,7 @@ const Option = ({
 Option.propTypes = {
   optionIsSelected: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
+  round: PropTypes.number.isRequired,
 };
 
 export default Option;

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import Option from '../../components/Options/Option';
-import { setOptionIsSelected, increment, getSelectedId } from '../../actions';
+import { setOptionIsSelected, increment, getSelectedId, setGameOver } from '../../actions';
 
 const mapStateToProps = (state) => ({
   optionIsSelected : state.optionIsSelected,
   currentCountry: state.currentCountry,
   selectedId: state.selectedId,
+  round: state.round,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getSelectedId : (id) => {
     dispatch(getSelectedId(id));
+  },
+  setGameOver: () => {
+    dispatch(setGameOver());
   }
 });
 

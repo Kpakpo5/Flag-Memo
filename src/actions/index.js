@@ -31,6 +31,11 @@ export const increment = () => ({
   type: INCREMENT,
 });
 
+export const INCREMENT_ROUND = 'INCREMENT_ROUND';
+export const incrementRound = () => ({
+  type: INCREMENT_ROUND,
+});
+
 export const DOUBLE_INCREMENT = 'DOUBLE_INCREMENT';
 export const doubleIncrement = () => ({
   type: DOUBLE_INCREMENT,
@@ -57,6 +62,11 @@ export const SET_NEXT_ROUND = 'SET_NEXT_ROUND';
 export const setNextRound = () => ({
   type: SET_NEXT_ROUND,
 });
+
+export const SET_GAME_OVER = 'SET_GAME_OVER';
+export const setGameOver = () => ({
+  type: SET_GAME_OVER,
+})
 
 export const RESET = 'RESET';
 export const reset = () => ({

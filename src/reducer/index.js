@@ -10,13 +10,16 @@ import {
   GET_SELECTED_ID,
   SET_NEXT_ROUND,
   RESET,
+  INCREMENT_ROUND,
+  SET_GAME_OVER,
 } from "../actions";
 
 export const initialState = {
   loadingCountries: true,
   countries: [],
   inputValue:"",
-  inputStyle: "default",
+  continent: "",
+  inputStyle: "",
   currentCountry: {},
   roundStarted: false,
   round : 0,
@@ -44,6 +47,12 @@ const reducer = (state = initialState, action = {}) => {
           currentCountry: action.country,
         }
 
+      case INCREMENT_ROUND:
+        return {
+          ...state,
+          round: state.round +1,
+        }
+      
       case CHANGE:
         return {
           ...state,
@@ -99,6 +108,12 @@ const reducer = (state = initialState, action = {}) => {
           gameStarted: false,
           optionIsSelected: false,
           selectedId: null,
+        }
+
+      case SET_GAME_OVER:
+        return {
+          ...state,
+          gameOver: true,
         }
       
       case RESET:

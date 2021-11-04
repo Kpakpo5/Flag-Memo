@@ -15,10 +15,10 @@ const Input = ({ inputValue, changeValue, halfRound, inputStyle }) => {
   };
 
   return (
-  <div className="imput">
+  <div className="input-container">
     <input
       ref={inputRef}
-      className={inputStyle}
+      className={`input ${inputStyle}`}
       name="country"
       type="text"
       value={inputValue}

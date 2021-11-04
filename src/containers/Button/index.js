@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { setNextRound, reset } from '../../actions';
+import { setNextRound, reset, incrementRound } from '../../actions';
 import Button from '../../components/Button';
 
 const mapStateToProps = (state) => ({
     optionIsSelected : state.optionIsSelected,
     countries: state.countries,
+    gameOver: state.gameOver,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   reset: () => {
       dispatch(reset());
+  },
+  incrementRound: () => {
+    dispatch(incrementRound());
   }
 });
 

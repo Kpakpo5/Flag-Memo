@@ -1,7 +1,16 @@
-.correct {
-  border: solid 3px green ;
-}
-
-.incorrect {
-  border: solid 3px red ;
+.input{
+  height: 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  &.correct {
+    border: solid 3px green ;
+    text-align: center;
+  }
+  &.incorrect {
+    border: solid 3px red ;
+    text-align: center;
+  }
+  &-container {
+    width: auto;
+  }
 }

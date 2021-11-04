@@ -10,15 +10,22 @@ const MCQ = ({ halfRound, inputStyle, currentCountry, inputValue, countries }) =
 
   return (
   <div className={halfRound ? "mcq" : "mcq-nodisplay"}>
-    <p>{ (inputStyle === 'correct') ? `Bravo! ${currentCountryName} est bien la bonne réponse.<br>
-      Quelle est sa capitale?` :
-      `${inputValue} n'est pas la bonne réponse, la réponse correcte est ${currentCountryName}.
-      Connaissez-vous sa capitale ?`}
-    </p>
+    
+    { (inputStyle === 'correct') 
+    ? <div>
+        <p>Bravo! <span>{currentCountryName}</span> est bien la bonne réponse.</p>
+        <p>Quelle est sa capitale ?</p>
+      </div>
+    : <div>
+        <p>La réponse <span>{inputValue}</span> est incorrecte.</p>
+        <p><span>{currentCountryName} est le bon pays.</span></p>
+        <p>Connaissez-vous sa capitale ?</p>
+      </div>
+    }
    {currentCountry && <Options />}
   </div>
-);
-};
+  );
+  }
 MCQ.propTypes = {
 
 };
