@@ -18,11 +18,11 @@ const Button = ({
   
   const handleDisplay = () => {
     if ((text === "Drapeau suivant" && !optionIsSelected) || (text === "Drapeau suivant" && gameOver)) {
-      return "nodisplay";
-    } else if (text === "Commencer" && !countries) {
-      return "nodisplay";
+      return "hide";
+    } else if (text === "Jouer au Quiz" && !countries) {
+      return "hide";
     } else if (text === "Votre score" && !gameOver) {
-      return "nodisplay";
+      return "hide";
     } else return "";
   }
 
@@ -33,7 +33,7 @@ const Button = ({
     } else if (text === "Abandonner") {
       reset();
       history.push('/');
-    } else if (text === "Commencer") {
+    } else if (text === "Jouer au Quiz") {
       incrementRound();
       history.push('/quiz');
     } else if (text === "Votre score") {

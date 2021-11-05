@@ -1,5 +1,5 @@
 .next {
-  background-color: #F7BB0F;
+  background-color: #F1CD52;
   margin: 1rem;
   border-radius: 5px;
   padding: 4px 10px;
@@ -7,14 +7,14 @@
   &:hover {
     transform: scale(1.1);
   }
-  &.nodisplay {
+  &.hide {
     display: none;
   }
 }
 
 .quit {
   background-color: rgb(236, 22, 22);
-  margin: 1rem;
+  margin: 1.5rem;
   border-radius: 5px;
   padding: 4px 10px;
   font-weight: bold;
@@ -24,28 +24,29 @@
 }
 
 .start {
-  background-color: #F7BB0F;
+  background-color: #F1CD52;
   margin-top: 3rem;
   border-radius: 5px;
   font-weight: bold;
   padding: 5px 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   &:hover {
     transform: scale(1.1);
   }
-  &.nodisplay {
+  &.hide {
     display: none;
   }
 }
 
 .result {
-  background-color: #F7BB0F;
+  background-color: #F1CD52;
   border-radius: 5px;
   padding: 4px 10px;
   font-weight: bold;
   &:hover {
     transform: scale(1.1);
   }
-  &.nodisplay {
+  &.hide {
     display: none;
   }
 }

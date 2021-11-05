@@ -21,7 +21,7 @@ const Option = ({
     console.log(chosenId);
     setOptionIsSelected();
     getSelectedId(chosenId);
-    if (round === 5) {
+    if (round === 7) {
       setGameOver();
     } 
     if (e.target.innerText === correctAnswer) {

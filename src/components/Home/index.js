@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home-image-container">
       <img className="home-image" src={globe} alt="globe terrestre en rotation" />
     </div>
-    <Button text="Commencer" styles="start" />
+    <Button text="Jouer au Quiz" styles="start" />
   </div>
   )
 };

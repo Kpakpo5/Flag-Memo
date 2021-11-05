@@ -1,7 +1,11 @@
 .header{
+  width: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
   
   &-logo {
     &-image {
@@ -17,10 +21,52 @@
     color: white;
     margin: 0 20px;
   }
-  
-  &-rules {
-    background-color: #f0ab18;
-    padding: 5px 10px;
-    border-radius: 6px;
+}
+
+.button {
+  background-color: #DAB57B;
+  padding: 5px 10px;
+  border: solid 3px white;
+  border-radius: 6px;
+  font-weight: bold;
+  &:hover {
+    transform: scale(1.1);
   }
+}
+
+
+.modal {
+  width: 60vw;
+  font-size: 16px;
+  background-color: #DAB57B;
+  border: solid 3px white;
+  border-radius: 5px;
+  @media screen and (max-width: 800px) {
+    width: 94vw;
+  }
+}
+.modal > .modal-header {
+  width: 98%;
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 5px;
+  top: 5px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
 }

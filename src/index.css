@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.popup-overlay {
+  backdrop-filter: brightness(30%);
+}
+
 #root {
   min-height: 100vh;
 }
