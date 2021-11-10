@@ -8,6 +8,7 @@
   }
   
   &-logo {
+    cursor: pointer;
     &-image {
       width: 100px;
       @media screen and (max-width: 800px) {
@@ -19,18 +20,21 @@
   &-slogan {
     text-align: center;
     color: white;
+    font-weight: bold;
     margin: 0 20px;
   }
 }
 
 .button {
-  background-color: #DAB57B;
+  background-color: white;
   padding: 5px 10px;
-  border: solid 3px white;
+  border: solid 4px #F1CD52;
   border-radius: 6px;
   font-weight: bold;
+  cursor: pointer;
   &:hover {
     transform: scale(1.1);
+    filter: saturate(2);
   }
 }
 
@@ -38,15 +42,15 @@
 .modal {
   width: 60vw;
   font-size: 16px;
-  background-color: #DAB57B;
-  border: solid 3px white;
+  background-color: white;
+  border: solid 4px #F1CD52;
   border-radius: 5px;
   @media screen and (max-width: 800px) {
     width: 94vw;
   }
 }
 .modal > .modal-header {
-  width: 98%;
+  width: 97%;
   border-bottom: 1px solid gray;
   font-size: 20px;
   font-style: italic;
@@ -55,6 +59,7 @@
 }
 .modal > .content {
   width: 100%;
+  font-style: italic;
   padding: 10px 5px;
 }
 .modal > .close {
@@ -68,5 +73,5 @@
   font-size: 24px;
   background: #ffffff;
   border-radius: 18px;
-  border: 1px solid #cfcece;
+  border: 2px solid #F1CD52;
 }

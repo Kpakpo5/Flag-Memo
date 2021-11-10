@@ -13,6 +13,7 @@ const Button = ({
   countries, 
   incrementRound,
   gameOver,
+  fetchAllCountries,
 }) => {
   const history = useHistory();
   
@@ -23,6 +24,8 @@ const Button = ({
       return "hide";
     } else if (text === "Votre score" && !gameOver) {
       return "hide";
+    } else if (text === "Abandonner" && gameOver) {
+      return "hide";
     } else return "";
   }
 
@@ -30,7 +33,7 @@ const Button = ({
     if(text === "Drapeau suivant") {
       incrementRound();
       setNextRound();
-    } else if (text === "Abandonner") {
+    } else if (text === "Abandonner" || text === "Accueil") {
       reset();
       history.push('/');
     } else if (text === "Jouer au Quiz") {
@@ -38,7 +41,12 @@ const Button = ({
       history.push('/quiz');
     } else if (text === "Votre score") {
       history.push('/resultat');
-    }
+    } else if (text === "Rejouer") {
+      reset();
+      fetchAllCountries();
+      incrementRound();
+      history.push('/quiz');
+    } 
   }
 
   return (

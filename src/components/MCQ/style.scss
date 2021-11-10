@@ -4,4 +4,13 @@
     &-nodisplay{
       display: none;
     }
+    &-countryName{
+      font-weight: bolder;
+      letter-spacing: 1px;
+    }
+    &-userResponse {
+      font-weight: bolder;
+      color: rgb(202, 16, 16);
+      letter-spacing: 1px;
+    }
 }

@@ -10,8 +10,13 @@
   &-button{
     margin: 1rem;
     border-radius: 5px;
-    border: solid 2px #1241F3;
-    padding: 3px 8px;
+    border: solid 3px #0F32AE;
+    padding: 4px 8px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
     &-nodisplay {
       display: none;
     }

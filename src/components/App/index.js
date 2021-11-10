@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Route, Switch} from 'react-router-dom';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Home from '../Home';
 import QuizScreen from '../../containers/Quizscreen';
-import ResultScreen from '../ResultScreen';
+import ResultScreen from '../../containers/ResultScreen';
 import Footer from '../Footer';
 
 import './style.scss';

@@ -5,7 +5,7 @@ import Options from '../../containers/Options';
 
 import './style.scss';
 
-const MCQ = ({ halfRound, inputStyle, currentCountry, inputValue, countries }) => {
+const MCQ = ({ halfRound, inputStyle, currentCountry }) => {
   const currentCountryName = currentCountry.translations.fra.common;
 
   return (
@@ -13,12 +13,12 @@ const MCQ = ({ halfRound, inputStyle, currentCountry, inputValue, countries }) =
     
     { (inputStyle === 'correct') 
     ? <div>
-        <p>Bravo! <span>{currentCountryName}</span> est bien la bonne réponse.</p>
+        <p>Bravo! <span className="mcq-countryName">" {currentCountryName} "</span> est bien la bonne réponse.</p>
         <p>Quelle est sa capitale ?</p>
       </div>
     : <div>
-        <p>La réponse <span>{inputValue}</span> est incorrecte.</p>
-        <p><span>{currentCountryName} est le bon pays.</span></p>
+        <p>La réponse est incorrecte.</p>
+        <p><span className="mcq-countryName">" {currentCountryName} "</span> est le bon pays.</p>
         <p>Connaissez-vous sa capitale ?</p>
       </div>
     }

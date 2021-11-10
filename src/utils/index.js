@@ -18,3 +18,30 @@ export function get3RandomItems (array) {
     const randomItems = shuffledArray(array).slice(1,4);
     return randomItems;
 }
+
+export function handleEmojiDisplay (result, data) {
+  if (result < 2) {
+    return data.worst;
+  }
+  else if (result >= 2 && result < 5) {
+    return data.bad;
+  }
+  else if (result >= 5 && result < 8) {
+    return data.mediocre;
+  }
+  else if (result >= 8 && result < 10) {
+    return data.almost;
+  }
+  else if (result >= 10 && result < 13) {
+    return data.good;
+  }
+  else if (result >= 13 && result < 17) {
+    return data.veryGood;
+  }
+  else if (result >= 17 && result < 21) {
+    return data.excellent;
+  }
+  else if (result === 21) {
+    return data.perfect;
+  }
+}

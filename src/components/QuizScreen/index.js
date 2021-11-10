@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import QuizForm from '../../containers/Quizform';
 import MCQ from '../../containers/MCQ';
 import Button from '../../containers/Button';
+import Round from '../../containers/Round';
 import './style.scss';
 
 import { getRandomItem } from '../../utils';
@@ -20,15 +21,15 @@ const QuizScreen = ({
   
     return (
       <div className="quizscreen">
-        <span className="quizscreen-round">Drapeau 1/1</span>
+        <Round />
         <div className="quizscreen-flag">
           <img className="quizscreen-flag-image" src={currentFlag} alt="drapeau aléatoire" />
         </div>
-      <QuizForm />
-      <MCQ />
-      <Button text="Drapeau suivant" styles="next" />
-      <Button text="Votre score" styles="result" />
-      <Button text="Abandonner" styles="quit" />
+        <QuizForm />
+        <MCQ />
+        <Button text="Drapeau suivant" styles="next" />
+        <Button text="Votre score" styles="result" />
+        <Button text="Abandonner" styles="quit" />
       </div>
   );
 };

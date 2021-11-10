@@ -5,7 +5,6 @@ const mapStateToProps = (state) => ({
   halfRound : state.halfRound,
   currentCountry: state.currentCountry,
   inputStyle: state.inputStyle,
-  inputValue: state.inputValue,
 });
 
 const mapDispatchToProps = {};
