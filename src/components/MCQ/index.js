@@ -27,7 +27,9 @@ const MCQ = ({ halfRound, inputStyle, currentCountry }) => {
   );
   }
 MCQ.propTypes = {
-
+  halfRound: PropTypes.bool.isRequired,
+  inputStyle: PropTypes.string.isRequired,
+  currentCountry: PropTypes.object.isRequired,
 };
 
 export default MCQ;

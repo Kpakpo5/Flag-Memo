@@ -10,17 +10,16 @@ const Button = ({
   reset,
   styles,
   optionIsSelected,
-  countries, 
+  loadingCountries, 
   incrementRound,
   gameOver,
-  fetchAllCountries,
 }) => {
   const history = useHistory();
   
   const handleDisplay = () => {
     if ((text === "Drapeau suivant" && !optionIsSelected) || (text === "Drapeau suivant" && gameOver)) {
       return "hide";
-    } else if (text === "Jouer au Quiz" && !countries) {
+    } else if (text === "Jouer au Quiz" && loadingCountries) {
       return "hide";
     } else if (text === "Votre score" && !gameOver) {
       return "hide";
@@ -43,7 +42,6 @@ const Button = ({
       history.push('/resultat');
     } else if (text === "Rejouer") {
       reset();
-      fetchAllCountries();
       incrementRound();
       history.push('/quiz');
     } 
@@ -59,7 +57,14 @@ const Button = ({
   );
   }
 Button.propTypes = {
-
+  text: PropTypes.string.isRequired,
+  styles: PropTypes.string.isRequired,
+  setNextRound: PropTypes.func.isRequired,
+  optionIsSelected: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  incrementRound: PropTypes.func.isRequired,
+  gameOver: PropTypes.bool.isRequired,
+  loadingCountries: PropTypes.bool.isRequired,
 };
 
 export default Button;

@@ -6,14 +6,13 @@ import './style.scss';
 
 import { get3RandomItems } from '../../utils';
 
-const Options = ({ countries, currentCountry, }) => {
+const Options = ({ countries, currentCountry }) => {
   const newArray = countries.filter(country => 
     country.name.common !== currentCountry.name.common && country.capital !== undefined);
   const partialOptions = get3RandomItems(newArray);
-  console.log(partialOptions);
   const totalOptions = [...partialOptions, currentCountry].sort(() =>
     Math.random() - 0.5);
-    const correctAnswer = currentCountry.capital[0];
+  const correctAnswer = currentCountry.capital[0];
   
   return (
     <div className="options">

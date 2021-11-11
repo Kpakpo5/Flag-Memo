@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { setNextRound, reset, incrementRound, fetchAllCountries } from '../../actions';
+import { setNextRound, reset, incrementRound } from '../../actions';
 import Button from '../../components/Button';
 
 const mapStateToProps = (state) => ({
     optionIsSelected : state.optionIsSelected,
-    countries: state.countries,
+    loadingCountries: state.loadingCountries,
     gameOver: state.gameOver,
 });
 
@@ -18,9 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
   incrementRound: () => {
     dispatch(incrementRound());
   },
-  fetchAllCountries: () => {
-    dispatch(fetchAllCountries());
-  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);

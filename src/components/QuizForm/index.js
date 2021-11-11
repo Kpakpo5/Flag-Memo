@@ -11,16 +11,14 @@ const QuizForm = ({
   doubleIncrement,
   setInputStyle
 }) => {
-  const correctCommonAnswer = currentCountry.translations.fra.common.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const correctOfficialAnswer = currentCountry.translations.fra.official.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  console.log(correctCommonAnswer);
-  console.log(correctOfficialAnswer);
+  const commonAnswer = currentCountry.translations.fra.common.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-/g, ' ');
+  const officialAnswer = currentCountry.translations.fra.official.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-/g, ' ');
+  const relevantCommonAnswer = commonAnswer.replace(/\s*\(.*?\)\s*/g, '');
+  const relevantOfficialAnswer = officialAnswer.replace(/\s*\(.*?\)\s*/g, '');
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputValue);
-    const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    console.log(userAnswer);
-    if(userAnswer === correctCommonAnswer || userAnswer === correctOfficialAnswer) {
+    const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-/g, ' ');
+    if(userAnswer === relevantCommonAnswer || userAnswer === relevantOfficialAnswer) {
       doubleIncrement();
       setInputStyle('correct');
     } else {
@@ -47,5 +45,9 @@ const QuizForm = ({
 QuizForm.propTypes = {
   currentCountry: PropTypes.object.isRequired,
   inputValue: PropTypes.string.isRequired,
+  startMCQ: PropTypes.func.isRequired,
+  halfRound: PropTypes.bool.isRequired,
+  doubleIncrement: PropTypes.func.isRequired,
+  setInputStyle: PropTypes.func.isRequired,
 }
 export default QuizForm;

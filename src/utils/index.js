@@ -1,11 +1,11 @@
 export function getRandomItem (items) {
     const currentItemIndex = Math.floor(Math.random() * (items.length));
-    console.log(currentItemIndex);
     const currentItem = items[currentItemIndex];
     return currentItem;
 }
 
 export function get3RandomItems (array) {
+  // Fisher-Yates Shuffle
     function shuffledArray(array) {
         let currentIndex = array.length, randomIndex;
         while (currentIndex !== 0) {
@@ -32,10 +32,10 @@ export function handleEmojiDisplay (result, data) {
   else if (result >= 8 && result < 10) {
     return data.almost;
   }
-  else if (result >= 10 && result < 13) {
+  else if (result >= 10 && result < 14) {
     return data.good;
   }
-  else if (result >= 13 && result < 17) {
+  else if (result >= 14 && result < 17) {
     return data.veryGood;
   }
   else if (result >= 17 && result < 21) {

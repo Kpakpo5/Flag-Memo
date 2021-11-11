@@ -14,7 +14,6 @@ const QuizScreen = ({
 }) => {
   const relevantCountries = countries.filter(country =>
     country.capital !== undefined);
-  console.log(relevantCountries);
   const currentCountry = getRandomItem(relevantCountries);
   const currentFlag = currentCountry.flags.svg;
   saveCountry(currentCountry);

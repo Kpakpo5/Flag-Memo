@@ -9,7 +9,6 @@ const api = axios.create({
       case FETCH_ALL_COUNTRIES:
         api.get('/all')
           .then((response) => {
-            console.log(response);
             store.dispatch(saveCountries(response.data));
           })
           .catch((error) => {

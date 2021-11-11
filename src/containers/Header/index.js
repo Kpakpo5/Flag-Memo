@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setNextRound, reset, incrementRound } from '../../actions';
+import { reset } from '../../actions';
 import Header from '../../components/Header';
 
 const mapStateToProps = null;

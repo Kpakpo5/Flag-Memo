@@ -8,7 +8,6 @@ import './style.scss';
 
 const ResultScreen = ({ score }) => {
   const emojisList = data;
-  console.log(emojisList);
   const emojis = handleEmojiDisplay(score, emojisList);
   
   return (
@@ -20,10 +19,10 @@ const ResultScreen = ({ score }) => {
           <div className="score-items-mark-bottom">20</div>
         </div>
         <div className="score-items-emoji">
-          <img src={emojis[0]} alt="" />
+          <img src={emojis[0]} alt="emoji" />
         </div>
         <div className="score-items-emoji">
-          <img src={emojis[1]} alt="" />
+          <img src={emojis[1]} alt="emoji" />
         </div>
       </div>
       <div className="score-buttons">
