@@ -6,14 +6,6 @@
   }
 }
 
-.quit {
-  background-color: rgb(236, 22, 22);
-  margin: 1.5rem;
-  &.hide {
-    display: none;
-  }
-}
-
 .start {
   background-color: #F1CD52;
   margin-top: 3rem;
@@ -42,7 +34,7 @@
   color: white;
 }
 
-.next,.quit,.start,.result,.replay,.return-home {
+.next,.start,.result,.replay,.return-home {
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;

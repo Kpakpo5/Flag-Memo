@@ -23,8 +23,6 @@ const Button = ({
       return "hide";
     } else if (text === "Votre score" && !gameOver) {
       return "hide";
-    } else if (text === "Abandonner" && gameOver) {
-      return "hide";
     } else return "";
   }
 
@@ -32,9 +30,6 @@ const Button = ({
     if(text === "Drapeau suivant") {
       incrementRound();
       setNextRound();
-    } else if (text === "Abandonner" || text === "Accueil") {
-      reset();
-      history.push('/');
     } else if (text === "Jouer au Quiz") {
       incrementRound();
       history.push('/quiz');
@@ -44,7 +39,10 @@ const Button = ({
       reset();
       incrementRound();
       history.push('/quiz');
-    } 
+    } else if (text === "Accueil") {
+      reset();
+      history.push('/')
+    }
   }
 
   return (

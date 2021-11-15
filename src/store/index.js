@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore } from 'redux-persist';
+
 import ajax from '../middleware/ajax';
 
-import reducer from '../reducer';
+import persistReducer from '../reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -9,6 +11,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(ajax),
 );
 
-const store = createStore(reducer, enhancers);
+export const store = createStore(persistReducer, enhancers);
 
-export default store;
+export const persistor = persistStore(store);
+

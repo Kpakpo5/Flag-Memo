@@ -1,3 +1,6 @@
+import {persistReducer} from 'redux-persist';
+import storageSession from 'redux-persist/lib/storage/session';
+
 import { 
   SAVE_COUNTRIES,
   CHANGE,
@@ -14,6 +17,11 @@ import {
   SET_GAME_OVER,
 } from "../actions";
 
+const persistConfig = {
+  key: 'root',
+  storage: storageSession,
+}
+
 export const initialState = {
   loadingCountries: true,
   countries: [],
@@ -27,6 +35,8 @@ export const initialState = {
   optionIsSelected: false,
   selectedId: null,
 };
+
+
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
@@ -130,4 +140,4 @@ const reducer = (state = initialState, action = {}) => {
     }
 };
 
-export default reducer;
+export default persistReducer(persistConfig, reducer);

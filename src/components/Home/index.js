@@ -5,8 +5,9 @@ import flags from '../../assets/images/flags.gif';
 
 import './style.scss';
 
-const Home = ({ fetchAllCountries }) => {
+const Home = ({ reset, fetchAllCountries }) => {
   useEffect(() => {
+    reset();
     fetchAllCountries();
   });
   
