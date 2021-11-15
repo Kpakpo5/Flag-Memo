@@ -16,7 +16,7 @@ const QuizScreen = ({
   reset
 }) => {
 
-  const handleUnpop = (e) => {
+  const handleOnpop = (e) => {
     history.push('/');
   };
 
@@ -30,7 +30,7 @@ const QuizScreen = ({
   };
 
   useEffect(() => {
-    window.onpopstate = handleUnpop;
+    window.onpopstate = handleOnpop;
   });
 
   useEffect(() => {
