@@ -4,7 +4,7 @@ import Button from '../../components/Button';
 
 const mapStateToProps = (state) => ({
     optionIsSelected : state.optionIsSelected,
-    countries: state.countries,
+    loadingCountries: state.loadingCountries,
     gameOver: state.gameOver,
 });
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   incrementRound: () => {
     dispatch(incrementRound());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);

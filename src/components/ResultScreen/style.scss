@@ -1,0 +1,53 @@
+.score {
+  width: 100%;
+  border-radius: 10px;
+  flex-basis: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  
+  &-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+    &-mark {
+      color: red;
+      font-weight: bold;
+      border: solid 1vw red;
+      width: 20vw;
+      height: 20vw;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &-top {
+        width: 70%;
+        font-size: 7vw;
+        text-align: center;
+        font-style: italic;
+      }
+      &-bottom {
+        font-size: 7vw;
+        font-style: italic;
+      }
+      &-line {
+        height: 1vw;
+        width: 70%;
+        background: red;
+      }
+
+    }
+    &-emoji > img{
+      width: 20vw;
+    }
+  }
+  
+  &-buttons {
+    display: flex;
+    justify-content: center;
+  }
+}

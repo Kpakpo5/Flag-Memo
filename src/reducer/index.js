@@ -1,3 +1,6 @@
+import {persistReducer} from 'redux-persist';
+import storageSession from 'redux-persist/lib/storage/session';
+
 import { 
   SAVE_COUNTRIES,
   CHANGE,
@@ -14,22 +17,26 @@ import {
   SET_GAME_OVER,
 } from "../actions";
 
+const persistConfig = {
+  key: 'root',
+  storage: storageSession,
+}
+
 export const initialState = {
   loadingCountries: true,
   countries: [],
   inputValue:"",
-  continent: "",
   inputStyle: "",
   currentCountry: {},
-  roundStarted: false,
   round : 0,
   halfRound: false,
-  gameStarted: false,
   gameOver: false,
   score: 0,
   optionIsSelected: false,
   selectedId: null,
 };
+
+
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
@@ -103,9 +110,7 @@ const reducer = (state = initialState, action = {}) => {
           inputValue:"",
           inputStyle: "default",
           currentCountry: {},
-          roundStarted: false,
           halfRound: false,
-          gameStarted: false,
           optionIsSelected: false,
           selectedId: null,
         }
@@ -123,10 +128,8 @@ const reducer = (state = initialState, action = {}) => {
           inputValue:"",
           inputStyle: "default",
           currentCountry: {},
-          roundStarted: false,
           round : 0,
           halfRound: false,
-          gameStarted: false,
           gameOver: false,
           score: 0,
           optionIsSelected: false,
@@ -137,4 +140,4 @@ const reducer = (state = initialState, action = {}) => {
     }
 };
 
-export default reducer;
+export default persistReducer(persistConfig, reducer);
