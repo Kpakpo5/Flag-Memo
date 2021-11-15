@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Flag-Memo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Flag-Memo est une application de Quiz permettant où le joueur doit trouver le pays et la capitale du pays dont le drapeau lui est présenté.
 
 ## Available Scripts
 

@@ -17,7 +17,7 @@ const QuizForm = ({
   const relevantOfficialAnswer = officialAnswer.replace(/\s*\(.*?\)\s*/g, '');
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-/g, ' ');
+    const userAnswer = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-/g, ' ').trim();
     if(userAnswer === relevantCommonAnswer || userAnswer === relevantOfficialAnswer) {
       doubleIncrement();
       setInputStyle('correct');

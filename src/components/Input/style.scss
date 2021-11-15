@@ -1,7 +1,9 @@
 .input{
-  height: 1.2rem;
+  height: 1.3rem;
+  width: 77%;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 15px;
   &.correct {
     border: solid 3px green ;
     text-align: center;
@@ -11,6 +13,6 @@
     text-align: center;
   }
   &-container {
-    width: auto;
+    width: 80%;
   }
 }

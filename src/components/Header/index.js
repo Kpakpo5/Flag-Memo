@@ -34,17 +34,17 @@ const Header = ({ reset }) => {
               <div className="modal-header"> Règles </div>
               <div className="content">
                 {' '}
-                &#201;tape 1 : trouvez le pays dont le drapeau est affiché.
+                <strong>&#201;tape 1 :</strong> Donnez le nom du pays dont le drapeau est affiché.
                 <br/>
-                * Le nom du pays du pays doit être bien orthographié. Toutefois, ne pas mettre de majuscules ou oublier l'accent d'une voyelle ne vous pénalise pas.
+                * Le nom doit être bien orthographié. Néanmoins, oublier une majuscule ou l'accent d'une voyelle ne vous pénalise pas.
                 <br/><br/>
                 {' '}
-                &#201;tape 2 : Selectionnez la capitale du pays parmi les 4 choix proposés.
+                <strong>&#201;tape 2 :</strong> Selectionnez la capitale du pays parmi les 4 choix proposés.
                 <br/>
                 <br/>
-                7 drapeaux vous sont proposés pendant le Quiz. Chaque pays trouvé vous donne 2 points et chaque capitale 1 point.
+                7 drapeaux vous sont proposés pendant le Quiz. Chaque pays trouvé vous rapporte 2 points et chaque capitale 1 point.
                 <br/>
-                Vous avez accès à votre score sur 20 à la fin du Quiz. Ne faites aucune erreur et obtenez le score divin de 21/20 &#x1F451;.
+                Vous avez accès à votre score sur 20 à la fin du Quiz. Ne faites aucune erreur et obtenez le score royal de 21/20 &#x1F451;.
                 <br/>
                 <br/>
                 &Agrave; vous de jouer !!!

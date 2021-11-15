@@ -1,16 +1,12 @@
 .mcq {
   text-align: center;
-  width: 80%;
+  width: 88%;
     &-nodisplay{
       display: none;
     }
     &-countryName{
       font-weight: bolder;
-      letter-spacing: 1px;
-    }
-    &-userResponse {
-      font-weight: bolder;
-      color: rgb(202, 16, 16);
+      font-size: 16px;
       letter-spacing: 1px;
     }
 }

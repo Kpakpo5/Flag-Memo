@@ -68,9 +68,9 @@ const QuizScreen = ({
               <div className="quit-modal">
                 <div className="quit-modal-header"> Confirmation </div>
                 <div className="quit-modal-content">
-                  En poursuivant cette action, vous perdrez votre progression et vous serez redirigés vers la page d'accueil.
+                  Abandonner vous fait perdre votre progression et vous redirige vers la page d'accueil.
                   <br/>
-                  Poursuivre ?
+                  Confirmer ?
                 </div>
                 <div className="quit-modal-buttons">
                   <button className="keepOn" onClick={handleClick}>Oui</button>
