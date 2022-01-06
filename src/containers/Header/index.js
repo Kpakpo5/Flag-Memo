@@ -1,12 +1,20 @@
 import { connect } from 'react-redux';
-import { reset } from '../../actions';
+import { reset, fetchAllCountries, setContinent } from '../../actions';
 import Header from '../../components/Header';
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  round: state.round,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   reset: () => {
       dispatch(reset());
+  },
+  fetchAllCountries: function () {
+    dispatch(fetchAllCountries());
+  },
+  setContinent: function (continent) {
+    dispatch(setContinent(continent));
   }
 });
 

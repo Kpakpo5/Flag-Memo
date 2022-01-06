@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveCountry, reset } from '../../actions';
+import { saveCountry, reset, setContinent } from '../../actions';
 import QuizScreen from '../../components/QuizScreen';
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   reset: () => {
     dispatch(reset());
-}
+  },
+  setContinent: (continent) => {
+    dispatch(setContinent(continent));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizScreen);

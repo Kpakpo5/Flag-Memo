@@ -32,7 +32,7 @@ const Option = ({
       id={id}
       onClick={handleClick}
       className={`option ${
-        optionIsSelected && (value===correctAnswer)
+        optionIsSelected && (value === correctAnswer)
           ? "true"
           : selectedId === id
             ? "wrong"

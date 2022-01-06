@@ -13,7 +13,8 @@ import { getRandomItem } from '../../utils';
 const QuizScreen = ({
   countries,
   saveCountry,
-  reset
+  reset,
+  setContinent,
 }) => {
 
   const handleOnpop = (e) => {
@@ -47,6 +48,7 @@ const QuizScreen = ({
   const handleClick = () => {
     reset();
     history.push('/');
+    setContinent('Monde');
   }
   
     return (

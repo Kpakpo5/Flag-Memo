@@ -6,6 +6,7 @@ import Home from '../../containers/Home';
 import QuizScreen from '../../containers/Quizscreen';
 import ResultScreen from '../../containers/ResultScreen';
 import Footer from '../Footer';
+import NotFound from '../404/NotFound';
 
 import './style.scss';
 
@@ -22,6 +23,9 @@ const App = () => {
         </Route>
         <Route exact path="/resultat">
           <ResultScreen />
+        </Route>
+        <Route exact path="/404">
+          <NotFound />
         </Route>
       </Switch>
       <Footer />
