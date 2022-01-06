@@ -5,6 +5,7 @@ import {
   SAVE_COUNTRIES,
   CHANGE,
   SAVE_COUNTRY,
+  SET_CONTINENT,
   START_MCQ,
   DOUBLE_INCREMENT,
   INCREMENT,
@@ -28,6 +29,7 @@ export const initialState = {
   inputValue:"",
   inputStyle: "",
   currentCountry: {},
+  continent: "Monde",
   round : 0,
   halfRound: false,
   gameOver: false,
@@ -52,6 +54,12 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           currentCountry: action.country,
+        }
+
+      case SET_CONTINENT:
+        return {
+          ...state,
+          continent: action.continent,
         }
 
       case INCREMENT_ROUND:

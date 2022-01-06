@@ -12,6 +12,8 @@
   height: 2.3rem;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
   &:hover {
     background-color: #F7BB0F;
     transform: scale(1.03);
