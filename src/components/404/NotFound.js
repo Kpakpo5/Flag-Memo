@@ -3,13 +3,13 @@ import React from 'react';
 import './style.scss';
 
 const NotFound = () => (
-  <div>
-    <p>
-      Oups les pays ont pris le large avec les drapeaux.
+  <div className="notfound">
+    <h1>
+      Oups!! les pays ont pris le large avec les drapeaux.
       <br />
       <br />
-      Veuillez réessayer plus tard.
-    </p>
+      Cliquez sur le logo pour retourner à l'accueil ou réessayez plus tard.
+    </h1>
   </div>
 );
 

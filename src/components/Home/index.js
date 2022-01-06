@@ -23,6 +23,7 @@ const Home = ({ reset, fetchAllCountries }) => {
 
 Home.propTypes = {
   fetchAllCountries: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
 };
 
 export default Home;

@@ -87,6 +87,7 @@ const QuizScreen = ({
 
 QuizScreen.propTypes = {
   countries: PropTypes.array.isRequired,
+  setContinent: PropTypes.func.isRequired,
   saveCountry: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
 };
