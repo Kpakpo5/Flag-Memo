@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setNextRound, reset, incrementRound } from '../../actions';
+import { setNextRound, reset, incrementRound, setContinent } from '../../actions';
 import Button from '../../components/Button';
 
 const mapStateToProps = (state) => ({
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   incrementRound: () => {
     dispatch(incrementRound());
+  },
+  setContinent: (continent) => {
+    dispatch(setContinent(continent))
   },
 });
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Zone from '../../containers/Zone';
 
 import './style.scss';
@@ -17,8 +16,5 @@ const Zonebar = () => (
   </div>
 );
 
-Zonebar.propTypes = {
-
-};
 
 export default Zonebar;

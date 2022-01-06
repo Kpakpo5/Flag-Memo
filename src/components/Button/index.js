@@ -7,6 +7,7 @@ import './style.scss';
 const Button = ({
   text,
   setNextRound,
+  setContinent,
   reset,
   styles,
   optionIsSelected,
@@ -41,7 +42,8 @@ const Button = ({
       history.push('/quiz');
     } else if (text === "Accueil") {
       reset();
-      history.push('/')
+      history.push('/');
+      setContinent('Monde');
     }
   }
 
@@ -63,6 +65,7 @@ Button.propTypes = {
   incrementRound: PropTypes.func.isRequired,
   gameOver: PropTypes.bool.isRequired,
   loadingCountries: PropTypes.bool.isRequired,
+  setContinent: PropTypes.func.isRequired,
 };
 
 export default Button;

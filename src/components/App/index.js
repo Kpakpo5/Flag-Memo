@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 import Header from '../../containers/Header';
 import Home from '../../containers/Home';
@@ -27,6 +27,7 @@ const App = () => {
         <Route exact path="/404">
           <NotFound />
         </Route>
+        <Redirect to="/404" />
       </Switch>
       <Footer />
     </div>

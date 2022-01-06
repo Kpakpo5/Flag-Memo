@@ -76,6 +76,9 @@ const Header = ({
 }
 Header.propTypes = {
   reset: PropTypes.func.isRequired,
+  fetchAllCountries: PropTypes.func.isRequired,
+  setContinent: PropTypes.func.isRequired,
+  round: PropTypes.number.isRequired,
 };
 
 export default Header;
