@@ -49,7 +49,7 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
     const currentOption = zoneOptions.find(option => option.zone === currentZone);
 
     return (
-        <div className="flex flex-col items-center justify-center mt-8">
+        <div className="flex flex-col items-center justify-center mt-7">
             <div>
                 <ul className="flex items-center justify-center flex-wrap">
                     {
@@ -67,7 +67,7 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
             </div>
             { isFetching
                 ? 
-                <div className="flex justify-center items-center mt-12">
+                <div className="flex justify-center items-center mt-16">
                     <FontAwesomeIcon 
                         className=" text-amber-500 text-8xl animate-spin"
                         icon={faCircleNotch}

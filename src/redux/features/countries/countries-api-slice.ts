@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-interface Country {
+export interface Country {
     name: {
         common: string,
         official: string

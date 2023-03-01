@@ -1,9 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Country } from './countries-api-slice';
 
 interface CountriesState {
     currentZone: string,
-    currentZoneCountries: [],
-    currentCountry : {}
+    currentZoneCountries: [] | Country[],
+    currentCountry : Country | {}
 }
 
 const initialState: CountriesState = {
@@ -17,13 +18,13 @@ export const countriesSlice = createSlice({
     name: "countries",
     initialState,
     reducers: {
-        setCurrentZone: (state, action) => {
+        setCurrentZone: (state, action: PayloadAction<string>) => {
             state.currentZone = action.payload;
         },
-        setCurrentZoneCountries: (state, action) => {
+        setCurrentZoneCountries: (state, action: PayloadAction<Country[]>) => {
             state.currentZoneCountries = action.payload;
         },
-        setCurrentCountry: (state, action) => {
+        setCurrentCountry: (state, action: PayloadAction<Country>) => {
             state.currentCountry = action.payload;
         }
     }
