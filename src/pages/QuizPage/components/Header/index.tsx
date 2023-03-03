@@ -1,5 +1,5 @@
 
-import CountDown from "./CountDown";
+import CountDownTimer from "./CountDownTimer";
 
 const Header: React.FC = () => {
     return (
@@ -10,7 +10,7 @@ const Header: React.FC = () => {
             <div>
                 Points
             </div>
-            <CountDown />
+            <CountDownTimer />
         </div>
     )
 }
