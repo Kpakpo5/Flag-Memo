@@ -12,32 +12,32 @@ import { useAppSelector } from "../../redux/hooks";
 
 const zoneOptions = [
     {
-        label: "Monde",
+        name: "Monde",
         zone: "all",
         map: worldMap
     },
     {
-        label: "Afrique",
+        name: "Afrique",
         zone: "region/africa",
         map: africaMap
     },
     {
-        label: "Amériques",
+        name: "Amériques",
         zone: "region/americas",
         map: americasMap
     },
     {
-        label: "Asie",
+        name: "Asie",
         zone: "region/asia",
         map: asiaMap
     },
     {
-        label: "Europe",
+        name: "Europe",
         zone: "region/europe",
         map: europeMap
     },
     {
-        label: "Océanie",
+        name: "Océanie",
         zone: "region/oceania",
         map: oceaniaMap
     },
@@ -55,8 +55,8 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
                     {
                         zoneOptions.map(option => 
                         <Zone
-                            key={option.label}
-                            label={option.label}
+                            key={option.name}
+                            name={option.name}
                             zone={option.zone}
                             currentZone={currentOption.zone}
                             isFetching={isFetching}
@@ -79,7 +79,7 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
                         <img className="w-full h-full object-contain" src={currentOption.map}/>
                     </div>  
                     <p className="text-lg text-gray-600 font-bold italic">
-                        {currentOption.label} &#8658; 
+                        {currentOption.name} &#8658; 
                         {currentOption.zone === "all"
                             ? " 10 pays à trouver"
                             : " 7 pays à trouver"

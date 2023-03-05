@@ -6,7 +6,11 @@ export interface Country {
         official: string
     },
     capital: [string],
-
+    translations: {
+        fra: {
+            common: string
+        }
+    },
     flags: [
         svg: string,
         png: string

@@ -1,20 +1,30 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentZoneCountries } from "../../redux/features/countries/countries-slice";
+import { setQuizHasStarted } from "../../redux/features/quiz/quiz-slice";
 import { useFetchZoneCountriesQuery } from "../../redux/features/countries/countries-api-slice";
 import logo from '../../assets/images/app-logo.png';
 import ZoneSelector from "./ZoneSelector";
 
 const HomePage: React.FC = () => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const currentZone = useAppSelector((state) => state.countries.currentZone);
     const { data, isFetching, isError } = useFetchZoneCountriesQuery(currentZone);
-    setCurrentZoneCountries(data);
+
+useEffect(() => {
+    if(data) {
+   dispatch(setCurrentZoneCountries(data));
+    }
+}, [data]);
+    
 
     const handleClick = () => {
+        dispatch(setQuizHasStarted(true));
         navigate("/quiz");
     }
 

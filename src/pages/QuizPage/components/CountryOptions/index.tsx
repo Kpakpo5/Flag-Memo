@@ -1,18 +1,26 @@
 import CountryOption from "./CountryOption";
 import { useAppSelector } from "../../../../redux/hooks"
-
-const mockArray = ["France", "Brésil", "Japon", "Togo"]
+import { get3RandomItems } from "../../../../utils";
 
 const CountryOptions: React.FC = () => {
 
-    const countries = useAppSelector((state) => state.countries.currentZoneCountries);
+    const currentCountry = useAppSelector(state => state.countries.currentCountry);
+    const countries = useAppSelector(state => state.countries.currentZoneCountries);
+    const relevantCountries = countries.filter(country => 
+        country.name.common !== currentCountry.name.common && country.name.common !== undefined);
+    const partialOptions = get3RandomItems(relevantCountries);
+    const totalOptions = [...partialOptions, currentCountry].sort(() =>
+    Math.random() - 0.5);
+    const correctOption = currentCountry.translations.fra.common;
+    
 
     return (
         <div className="flex items-center justify-center flex-wrap">
-            {mockArray.map(countryName =>
+            {totalOptions.map(option =>
             <CountryOption
-                key={countryName}
-                country={countryName}
+                key={option.name.common}
+                countryName={option.translations.fra.common}
+                correctOption={correctOption}
             />
                 )}
         </div>

@@ -10,7 +10,7 @@ const CountDownTimer: React.FC = () => {
     useEffect(() => {
         const countDown = () => {
             setRemainingTime(prevTime => {
-                if (prevTime <= 0) return 0;
+                if (prevTime < 1) return 0;
                 const currentTime = Date.now();
                 const interval = currentTime - referenceTime;
                 setReferenceTime(currentTime);
@@ -22,9 +22,17 @@ const CountDownTimer: React.FC = () => {
 
     }, [remainingTime])
 
+    const remainingSeconds = Math.round(remainingTime/1000);
+
     return (
-        <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center text-xl font-bold">
-            {Math.round(remainingTime/1000)}
+        <div className={`w-16 h-16 rounded-full border-2 flex items-center justify-center text-2xl font-bold ${
+            remainingSeconds > 9
+            ? "border-green-500"
+            : remainingSeconds > 0
+                ? "border-red-500"
+                : "border-neutral-400 text-neutral-400"
+        }`}>
+            {remainingSeconds}
         </div>
     )
 }

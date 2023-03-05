@@ -1,20 +1,22 @@
 
 import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentZone } from "../../redux/features/countries/countries-slice";
+import { setCurrentZoneName} from "../../redux/features/countries/countries-slice";
 
 type ZoneProps = {
-    label: string;
+    name: string;
     zone: string;
     currentZone: string;
     isFetching: boolean;
 }
 
-const Zone = ({label, zone, currentZone, isFetching}:ZoneProps) => {
+const Zone = ({name, zone, currentZone, isFetching}:ZoneProps) => {
 
     const dispatch = useAppDispatch();
 
     const handleClick = () => {
         dispatch(setCurrentZone(zone));
+        dispatch(setCurrentZoneName(name));
     }
     
     return (
@@ -32,7 +34,7 @@ const Zone = ({label, zone, currentZone, isFetching}:ZoneProps) => {
             `}
             onClick={handleClick}
         >
-            {label}
+            {name}
         </li>
     )
 }

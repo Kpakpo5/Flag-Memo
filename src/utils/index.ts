@@ -16,6 +16,7 @@ export function get3RandomItems (array: any[]) {
         return array;
       }
     const randomItems = shuffledArray(array).slice(1,4);
+    console.log(randomItems);
     return randomItems;
 }
 

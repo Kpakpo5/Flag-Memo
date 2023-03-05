@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
 import ResultsPage from './pages/ResultsPage';
-import background from './assets/images/background-fm.png';
 
 const App: React.FC = () => {
   return (
