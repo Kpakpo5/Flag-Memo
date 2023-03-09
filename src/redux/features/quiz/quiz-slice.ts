@@ -5,8 +5,10 @@ interface QuizState {
     quizHasEnded: boolean,
     score: number,
     round: number,
+    countryOptionsDisplay: boolean,
     countryIsChosen: boolean,
     countryChoiceIsCorrect : boolean,
+    capitalOptionsDisplay: boolean,
     capitalIsChosen: boolean,
     capitalChoiceIsCorrect: boolean,
 
@@ -18,8 +20,10 @@ const initialState: QuizState = {
     quizHasEnded: false,
     score: 0,
     round: 0,
+    countryOptionsDisplay: false,
     countryIsChosen: false,
     countryChoiceIsCorrect: null,
+    capitalOptionsDisplay: false,
     capitalIsChosen: false,
     capitalChoiceIsCorrect: null
 }
@@ -37,18 +41,36 @@ export const quizSlice = createSlice({
         setScore: (state, action: PayloadAction<number>) => {
             state.score += action.payload;
         },
+        displayCountryOptions: (state, action: PayloadAction<boolean>) => {
+            state.countryOptionsDisplay = action.payload;
+        },
         setCountryIsChosen: (state, action: PayloadAction<boolean>) => {
             state.countryIsChosen = action.payload;
-        },
-        setCapitalIsChosen: (state, action: PayloadAction<boolean>) => {
-            state.capitalIsChosen = action.payload;
         },
         setCountryChoiceIsCorrect: (state, action: PayloadAction<boolean>) => {
             state.countryChoiceIsCorrect = action.payload;
         },
+        displayCapitalOptions: (state) => {
+            state.countryOptionsDisplay = false;
+            state.countryIsChosen = false;
+            state.countryChoiceIsCorrect = null;
+            state.capitalOptionsDisplay = true;
+        },
+        setCapitalIsChosen: (state, action: PayloadAction<boolean>) => {
+            state.capitalIsChosen = action.payload;
+        },
         setCapitalChoiceIsCorrect: (state, action: PayloadAction<boolean>) => {
             state.capitalChoiceIsCorrect = action.payload;
         },
+        incrementRound: (state) => {
+            state.round ++;
+        },
+        setNextRound: (state) => {
+            state.capitalOptionsDisplay = false;
+            state.capitalIsChosen = false;
+            state.capitalChoiceIsCorrect = null;
+        }
+        
     }
 });
 
@@ -58,10 +80,14 @@ export const {
     setQuizHasEnded,
     setQuizHasStarted,
     setScore,
+    displayCountryOptions,
     setCountryIsChosen,
     setCountryChoiceIsCorrect,
+    displayCapitalOptions,
     setCapitalIsChosen,
-    setCapitalChoiceIsCorrect
+    setCapitalChoiceIsCorrect,
+    incrementRound,
+    setNextRound
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

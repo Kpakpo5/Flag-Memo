@@ -11,7 +11,7 @@ interface CountriesState {
 const initialState: CountriesState = {
     currentZone: "all",
     currentZoneName: "Monde",
-    currentZoneCountries: [],
+    currentZoneCountries: null,
     currentCountry: null
 }
 
@@ -34,13 +34,19 @@ export const countriesSlice = createSlice({
         },
         withdrawCurrentCountry: (state) => {
             state.currentZoneCountries = state.currentZoneCountries.filter(country => 
-                country !== state.currentCountry);
+                country.name.common !== state.currentCountry.name.common);
             state.currentCountry = null;
         }
     }
 });
 
 
-export const { setCurrentZone, setCurrentZoneName, setCurrentZoneCountries, setCurrentCountry } = countriesSlice.actions;
+export const {
+    setCurrentZone,
+    setCurrentZoneName,
+    setCurrentZoneCountries,
+    setCurrentCountry,
+    withdrawCurrentCountry
+} = countriesSlice.actions;
 
 export default countriesSlice.reducer;

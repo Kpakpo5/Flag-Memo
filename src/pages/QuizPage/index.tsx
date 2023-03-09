@@ -1,30 +1,35 @@
-import Header from "./components/Header";
-import CountryOptions from "./components/CountryOptions";
-import CapitalOptions from "./components/CapitalOptions";
-import flag from "../../assets/images/france.png";
-
+import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentCountry } from "../../redux/features/countries/countries-slice";
+import { displayCountryOptions, incrementRound } from "../../redux/features/quiz/quiz-slice";
+
+import Header from "./Header";
+import OptionsContainer from "./OptionsContainer/OptionContainer";
 
 import { getRandomItem } from "../../utils";
 
 const QuizPage: React.FC = () => {
-const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-const countries = useAppSelector(state => state.countries.currentZoneCountries);
-const randomCountry = getRandomItem(countries);
-dispatch(setCurrentCountry(randomCountry));
-const currentFlag = randomCountry.flags.svg;
+    const [current, setCurrent] = useState(null);
+    const countries = useAppSelector(state => state.countries.currentZoneCountries);
+    useEffect(() => {
+        dispatch(incrementRound());
+        const randomCountry = getRandomItem(countries);
+        setCurrent(randomCountry)
+        dispatch(setCurrentCountry(randomCountry));
+        dispatch(displayCountryOptions(true));
+    }, [countries])
+
 
     return (
         <div className="flex flex-col items-center w-full">
             <Header />
         <div className="flex flex-col jutify-center items-center">
             <div className="h-32 w-56 mb-8 border-2 border-neutral-300">
-                <img className="h-full w-full object-cover" src={currentFlag} alt="quiz flag" />
+                {current && <img className="h-full w-full object-cover" src={current.flags.svg} alt="quiz flag" />}
             </div>
-            <CountryOptions />
-            <CapitalOptions />
+            <OptionsContainer />
         </div>
             
         </div>

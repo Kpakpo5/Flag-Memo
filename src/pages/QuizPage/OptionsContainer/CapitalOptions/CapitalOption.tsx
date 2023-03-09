@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/hooks';
-import { setCapitalIsChosen, setCapitalChoiceIsCorrect } from '../../../../redux/features/quiz/quiz-slice';
+import { withdrawCurrentCountry } from '../../../../redux/features/countries/countries-slice'
+import { setCapitalIsChosen, setCapitalChoiceIsCorrect, setNextRound } from '../../../../redux/features/quiz/quiz-slice';
 
 type optionProps = {
     capital: string,
@@ -9,18 +10,30 @@ type optionProps = {
 
 const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
     const dispatch = useAppDispatch();
+    
     const [backGroundColor, setBackGroundColor] = useState("bg-white");
-    const capitalIsChosen = useAppSelector(state => state.quiz.capitalIsChosen);
-
+    const [ nextFlag, setNextFlag] = useState(false);
+    
+    const capitalIsChosen = useAppSelector((state) => state.quiz.capitalIsChosen);
     useEffect(() => {
-        if (capitalIsChosen && correctOption === capital) {
+        if(capitalIsChosen && capital === correctOption) {
             setBackGroundColor("bg-green-500");
         }
-    },[capitalIsChosen])
+    }, [capitalIsChosen])
+    
+    useEffect(() => {
+        if (nextFlag) {
+            setTimeout(() => {
+                dispatch(setNextRound());
+                dispatch(withdrawCurrentCountry());
+            }, 2000)
+        }
+    },[nextFlag])
     
     
     const handleClick = () => {
         dispatch(setCapitalIsChosen(true));
+        setNextFlag(true);
         if (capital === correctOption) {
             dispatch(setCapitalChoiceIsCorrect(true));
         } else {
@@ -31,7 +44,7 @@ const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
 
     return (
         <button 
-            disabled={capitalIsChosen}
+            disabled={nextFlag}
             onClick = {handleClick}
             className={`w-80 text-lg font-bold h-12 m-4 rounded ${backGroundColor}`}
         >

@@ -1,5 +1,6 @@
+import { useAppSelector } from "../../../../redux/hooks";
 import CountryOption from "./CountryOption";
-import { useAppSelector } from "../../../../redux/hooks"
+
 import { get3RandomItems } from "../../../../utils";
 
 const CountryOptions: React.FC = () => {
@@ -9,10 +10,10 @@ const CountryOptions: React.FC = () => {
     const relevantCountries = countries.filter(country => 
         country.name.common !== currentCountry.name.common && country.name.common !== undefined);
     const partialOptions = get3RandomItems(relevantCountries);
+    console.log(partialOptions);
     const totalOptions = [...partialOptions, currentCountry].sort(() =>
     Math.random() - 0.5);
     const correctOption = currentCountry.translations.fra.common;
-    
 
     return (
         <div className="flex items-center justify-center flex-wrap">

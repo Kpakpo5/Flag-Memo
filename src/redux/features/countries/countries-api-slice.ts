@@ -11,10 +11,10 @@ export interface Country {
             common: string
         }
     },
-    flags: [
+    flags: {
         svg: string,
         png: string
-    ]
+    }
 }
 
 
