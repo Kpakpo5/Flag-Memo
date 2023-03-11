@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentZoneCountries } from "../../redux/features/countries/countries-slice";
-import { setQuizHasStarted } from "../../redux/features/quiz/quiz-slice";
+import { startQuiz, setQuizLength } from "../../redux/features/quiz/quiz-slice";
 import { useFetchZoneCountriesQuery } from "../../redux/features/countries/countries-api-slice";
 import logo from '../../assets/images/app-logo.png';
 import ZoneSelector from "./ZoneSelector";
@@ -24,7 +24,8 @@ useEffect(() => {
     
 
     const handleClick = () => {
-        dispatch(setQuizHasStarted(true));
+        dispatch(startQuiz());
+        setQuizLength()
         navigate("/quiz");
     }
 

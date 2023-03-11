@@ -10,7 +10,6 @@ const CountryOptions: React.FC = () => {
     const relevantCountries = countries.filter(country => 
         country.name.common !== currentCountry.name.common && country.name.common !== undefined);
     const partialOptions = get3RandomItems(relevantCountries);
-    console.log(partialOptions);
     const totalOptions = [...partialOptions, currentCountry].sort(() =>
     Math.random() - 0.5);
     const correctOption = currentCountry.translations.fra.common;

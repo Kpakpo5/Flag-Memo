@@ -3,8 +3,8 @@
 const ResultsPage: React.FC = () => {
   
     return (
-        <div className="score">
-            Results
+        <div className="text-white">
+            Résultats
         </div>
     );
 }

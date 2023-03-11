@@ -35,7 +35,6 @@ export const countriesSlice = createSlice({
         withdrawCurrentCountry: (state) => {
             state.currentZoneCountries = state.currentZoneCountries.filter(country => 
                 country.name.common !== state.currentCountry.name.common);
-            state.currentCountry = null;
         }
     }
 });

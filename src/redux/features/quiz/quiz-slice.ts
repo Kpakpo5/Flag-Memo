@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface QuizState {
-    quizHasStarted: boolean,
-    quizHasEnded: boolean,
+    quizStarts: boolean,
+    quizIsOver: boolean,
+    quizLength: number,
     score: number,
     round: number,
     countryOptionsDisplay: boolean,
@@ -11,13 +12,14 @@ interface QuizState {
     capitalOptionsDisplay: boolean,
     capitalIsChosen: boolean,
     capitalChoiceIsCorrect: boolean,
-
+    timeIsOver: boolean
 }
 
 
 const initialState: QuizState = {
-    quizHasStarted: false,
-    quizHasEnded: false,
+    quizStarts: false,
+    quizIsOver: false,
+    quizLength: 10,
     score: 0,
     round: 0,
     countryOptionsDisplay: false,
@@ -25,18 +27,22 @@ const initialState: QuizState = {
     countryChoiceIsCorrect: null,
     capitalOptionsDisplay: false,
     capitalIsChosen: false,
-    capitalChoiceIsCorrect: null
+    capitalChoiceIsCorrect: null,
+    timeIsOver: false
 }
 
 export const quizSlice = createSlice({
     name: "quiz",
     initialState,
     reducers: {
-        setQuizHasStarted: (state, action: PayloadAction<boolean>) => {
-            state.quizHasStarted = action.payload;
+        startQuiz: (state) => {
+            state.quizStarts = true;
         },
-        setQuizHasEnded: (state, action: PayloadAction<boolean>) => {
-            state.quizHasEnded = action.payload;
+        endQuiz: (state) => {
+            state.quizIsOver = true;
+        },
+        setQuizLength: (state, action: PayloadAction<number>) => {
+            state.quizLength = action.payload;
         },
         setScore: (state, action: PayloadAction<number>) => {
             state.score += action.payload;
@@ -62,6 +68,13 @@ export const quizSlice = createSlice({
         setCapitalChoiceIsCorrect: (state, action: PayloadAction<boolean>) => {
             state.capitalChoiceIsCorrect = action.payload;
         },
+        resetSuccess: (state) => {
+            state.countryChoiceIsCorrect = null;
+            state.capitalChoiceIsCorrect = null;
+        },
+        setTimeIsOver: (state, action: PayloadAction<boolean>) => {
+            state.timeIsOver = action.payload;
+        },
         incrementRound: (state) => {
             state.round ++;
         },
@@ -77,8 +90,9 @@ export const quizSlice = createSlice({
 
 
 export const {
-    setQuizHasEnded,
-    setQuizHasStarted,
+    startQuiz,
+    endQuiz,
+    setQuizLength,
     setScore,
     displayCountryOptions,
     setCountryIsChosen,
@@ -86,6 +100,8 @@ export const {
     displayCapitalOptions,
     setCapitalIsChosen,
     setCapitalChoiceIsCorrect,
+    resetSuccess,
+    setTimeIsOver,
     incrementRound,
     setNextRound
 } = quizSlice.actions;

@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import QuizPage from './pages/QuizPage';
+import HomePage from './pages/HomePage/HomePage';
+import QuizPage from './pages/QuizPage/QuizPage';
 import ResultsPage from './pages/ResultsPage';
 
 const App: React.FC = () => {
@@ -11,7 +11,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/quiz" element={<QuizPage />} />
-            <Route path="/results" element={<ResultsPage />} />
+            <Route path="/resultats" element={<ResultsPage />} />
           </Routes>
         </Router>
     </div>

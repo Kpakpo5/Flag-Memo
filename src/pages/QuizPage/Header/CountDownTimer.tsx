@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
-import { setScore } from "../../../redux/features/quiz/quiz-slice";
+import { setScore, setTimeIsOver,resetSuccess } from "../../../redux/features/quiz/quiz-slice";
 
 const TIME_IN_MILISECONDS_TO_COUNTDOWN = 15*1000;
 
@@ -9,7 +9,7 @@ const CountDownTimer: React.FC = () => {
 
     const [ remainingTime, setRemainingTime] = useState(TIME_IN_MILISECONDS_TO_COUNTDOWN);
     const [referenceTime, setReferenceTime] = useState(Date.now());
-    const remainingSeconds = Math.round(remainingTime/1000);
+    const remainingSeconds = Math.ceil(remainingTime/1000);
     
     const countryIsChosen = useAppSelector((state) => state.quiz.countryIsChosen);
     const countryChoiceIsCorrect = useAppSelector((state) => state.quiz.countryChoiceIsCorrect);
@@ -44,8 +44,12 @@ const CountDownTimer: React.FC = () => {
             } else {
                 dispatch(setScore(remainingSeconds));
             }
+            dispatch(resetSuccess())
         }
-    }, [countryIsChosen, countryChoiceIsCorrect, capitalIsChosen, capitalChoiceIsCorrect]);
+        if(remainingSeconds === 0) {
+            dispatch(setTimeIsOver(true));
+        }
+    }, [remainingSeconds, countryIsChosen, countryChoiceIsCorrect, capitalIsChosen, capitalChoiceIsCorrect]);
 
     
     
