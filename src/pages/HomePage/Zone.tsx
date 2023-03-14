@@ -1,7 +1,6 @@
 
 import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentZone, setCurrentZoneName } from "../../redux/features/countries/countries-slice";
-import { setQuizLength } from '../../redux/features/quiz/quiz-slice';
 
 type ZoneProps = {
     name: string;
@@ -17,11 +16,6 @@ const Zone = ({name, zone, currentZone, isFetching}:ZoneProps) => {
     const handleClick = () => {
         dispatch(setCurrentZone(zone));
         dispatch(setCurrentZoneName(name));
-        if(name === "Monde") {
-            dispatch(setQuizLength(10));
-        } else {
-            dispatch(setQuizLength(7));
-        }
     }
     
     return (

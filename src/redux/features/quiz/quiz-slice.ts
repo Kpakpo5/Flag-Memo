@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface QuizState {
-    quizStarts: boolean,
-    quizIsOver: boolean,
+    quizIsRunning: boolean,
     quizLength: number,
     score: number,
+    goodAnswers: number,
     round: number,
     countryOptionsDisplay: boolean,
     countryIsChosen: boolean,
@@ -12,15 +12,15 @@ interface QuizState {
     capitalOptionsDisplay: boolean,
     capitalIsChosen: boolean,
     capitalChoiceIsCorrect: boolean,
-    timeIsOver: boolean
+    timeIsOver: boolean,
+    displayResultsPage: boolean
 }
 
-
 const initialState: QuizState = {
-    quizStarts: false,
-    quizIsOver: false,
-    quizLength: 10,
+    quizIsRunning: false,
+    quizLength: 0,
     score: 0,
+    goodAnswers: 0,
     round: 0,
     countryOptionsDisplay: false,
     countryIsChosen: false,
@@ -28,7 +28,8 @@ const initialState: QuizState = {
     capitalOptionsDisplay: false,
     capitalIsChosen: false,
     capitalChoiceIsCorrect: null,
-    timeIsOver: false
+    timeIsOver: false,
+    displayResultsPage: false
 }
 
 export const quizSlice = createSlice({
@@ -36,16 +37,22 @@ export const quizSlice = createSlice({
     initialState,
     reducers: {
         startQuiz: (state) => {
-            state.quizStarts = true;
+            state.quizIsRunning = true;
         },
         endQuiz: (state) => {
-            state.quizIsOver = true;
+            state.displayResultsPage = true;
         },
+        quizIsOver: (state => {
+            state.quizIsRunning = false;
+        }),
         setQuizLength: (state, action: PayloadAction<number>) => {
             state.quizLength = action.payload;
         },
         setScore: (state, action: PayloadAction<number>) => {
             state.score += action.payload;
+        },
+        incrementGoodAnswers : (state) => {
+            state.goodAnswers ++;
         },
         displayCountryOptions: (state, action: PayloadAction<boolean>) => {
             state.countryOptionsDisplay = action.payload;
@@ -82,8 +89,22 @@ export const quizSlice = createSlice({
             state.capitalOptionsDisplay = false;
             state.capitalIsChosen = false;
             state.capitalChoiceIsCorrect = null;
+        },
+        resetQuiz: (state) => {
+            state.quizIsRunning =false;
+            state.quizLength = 0;
+            state.score = 0;
+            state.goodAnswers = 0;
+            state.round = 0;
+            state.countryOptionsDisplay = false;
+            state.countryIsChosen = false;
+            state.countryChoiceIsCorrect = null;
+            state.capitalOptionsDisplay = false,
+            state.capitalIsChosen = false;
+            state.capitalChoiceIsCorrect = null;
+            state.timeIsOver = false;
+            state.displayResultsPage = false;
         }
-        
     }
 });
 
@@ -92,8 +113,10 @@ export const quizSlice = createSlice({
 export const {
     startQuiz,
     endQuiz,
+    quizIsOver,
     setQuizLength,
     setScore,
+    incrementGoodAnswers,
     displayCountryOptions,
     setCountryIsChosen,
     setCountryChoiceIsCorrect,
@@ -103,7 +126,8 @@ export const {
     resetSuccess,
     setTimeIsOver,
     incrementRound,
-    setNextRound
+    setNextRound,
+    resetQuiz,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

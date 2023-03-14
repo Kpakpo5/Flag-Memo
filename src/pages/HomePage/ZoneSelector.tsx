@@ -81,8 +81,8 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
                     <p className="text-lg text-gray-600 font-bold italic">
                         {currentOption.name} &#8658; 
                         {currentOption.zone === "all"
-                            ? " 10 pays à trouver"
-                            : " 7 pays à trouver"
+                            ? " Quiz de 10 drapeaux"
+                            : " Quiz de 7 drapeaux"
                         }
                     </p>
                 </div>

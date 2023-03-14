@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentZoneCountries } from "../../redux/features/countries/countries-slice";
-import { startQuiz, setQuizLength } from "../../redux/features/quiz/quiz-slice";
+import { resetQuiz, startQuiz } from "../../redux/features/quiz/quiz-slice";
 import { useFetchZoneCountriesQuery } from "../../redux/features/countries/countries-api-slice";
 import logo from '../../assets/images/app-logo.png';
 import ZoneSelector from "./ZoneSelector";
@@ -12,20 +12,22 @@ import ZoneSelector from "./ZoneSelector";
 const HomePage: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
+    
     const currentZone = useAppSelector((state) => state.countries.currentZone);
     const { data, isFetching, isError } = useFetchZoneCountriesQuery(currentZone);
 
-useEffect(() => {
-    if(data) {
-   dispatch(setCurrentZoneCountries(data));
-    }
-}, [data]);
-    
+    useEffect(() => {
+        if(data) {
+    dispatch(setCurrentZoneCountries(data));
+        }
+    }, [data]);
 
+    useEffect(() => {
+        dispatch(resetQuiz());
+    }, [])
+    
     const handleClick = () => {
         dispatch(startQuiz());
-        setQuizLength()
         navigate("/quiz");
     }
 
@@ -52,7 +54,7 @@ useEffect(() => {
                     <button 
                         disabled={isFetching }
                         onClick={handleClick}
-                        className="text-white font-extrabold px-8 py-4 mt-10 sm:mt-16 bg-amber-500 rounded shadow-inner shadow-white"
+                        className="text-white font-extrabold px-8 py-4 mt-10 sm:mt-16 bg-amber-500 shadow-inner shadow-white"
                     >
                         Démarrer le Quiz
                     </button>

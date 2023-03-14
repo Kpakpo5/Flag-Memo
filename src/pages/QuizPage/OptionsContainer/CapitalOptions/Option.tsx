@@ -5,6 +5,7 @@ import { withdrawCurrentCountry } from '../../../../redux/features/countries/cou
 import {
     setCapitalIsChosen,
     setCapitalChoiceIsCorrect,
+    incrementGoodAnswers,
     setNextRound,
     endQuiz
 } from '../../../../redux/features/quiz/quiz-slice';
@@ -14,12 +15,12 @@ type optionProps = {
     correctOption: string
 }
 
-const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
+const Option: React.FC<optionProps> = ({capital, correctOption}) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     
     const [backGroundColor, setBackGroundColor] = useState("bg-white");
-    const [ nextFlag, setNextFlag] = useState(false);
+    const [ userHasClicked, setUserHasClicked] = useState(false);
     
     const capitalIsChosen = useAppSelector((state) => state.quiz.capitalIsChosen);
     const timeIsOver = useAppSelector((state) => state.quiz.timeIsOver);
@@ -34,7 +35,7 @@ const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
     }, [capitalIsChosen, timeIsOver])
     
     useEffect(() => {
-        if (nextFlag) {
+        if (userHasClicked) {
             setTimeout(() => {
                 if(round === quizLength) {
                     dispatch(endQuiz());
@@ -45,14 +46,15 @@ const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
                 }
             }, 2500);
         }
-    },[nextFlag, round, quizLength])
+    },[userHasClicked, round, quizLength])
     
     
     const handleClick = () => {
         dispatch(setCapitalIsChosen(true));
-        setNextFlag(true);
+        setUserHasClicked(true);
         if (capital === correctOption) {
             dispatch(setCapitalChoiceIsCorrect(true));
+            dispatch(incrementGoodAnswers());
         } else {
             setBackGroundColor("bg-red-500");
             dispatch(setCapitalChoiceIsCorrect(false));
@@ -61,7 +63,7 @@ const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
 
     return (
         <button 
-            disabled={nextFlag || timeIsOver}
+            disabled={capitalIsChosen || timeIsOver}
             onClick = {handleClick}
             className={`w-80 text-lg font-bold h-12 m-4 rounded ${backGroundColor}`}
         >
@@ -71,4 +73,4 @@ const CapitalOption: React.FC<optionProps> = ({capital, correctOption}) => {
 }
 
 
-export default CapitalOption;
+export default Option;

@@ -1,4 +1,4 @@
-import CapitalOption from "./CapitalOption";
+import CapitalOption from "./Option";
 import { useAppSelector } from "../../../../redux/hooks"
 
 import { get3RandomItems } from "../../../../utils";
@@ -17,14 +17,17 @@ const CapitalOptions: React.FC = () => {
     const correctOption = currentCountry.capital[0];
     
     return (
-        <div className="flex flex-col items-center justify-center flex-wrap">
-            {totalOptions.map( option =>
-            <CapitalOption
-                key={option.capital[0]}
-                capital={option.capital[0]}
-                correctOption={correctOption}
-            />
-                )}
+        <div className="flex flex-col items-center">
+            <p className="text-white text-2xl font-bold mb-4">Capitale ?</p>
+            <div className="flex flex-col items-center justify-center flex-wrap">
+                {totalOptions.map( option =>
+                <CapitalOption
+                    key={option.capital[0]}
+                    capital={option.capital[0]}
+                    correctOption={correctOption}
+                />
+                    )}
+            </div>
         </div>
     )
 }

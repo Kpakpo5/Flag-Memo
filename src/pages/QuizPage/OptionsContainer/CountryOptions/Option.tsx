@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../../../redux/hooks';
 import {
     setCountryIsChosen,
     setCountryChoiceIsCorrect,
+    incrementGoodAnswers,
     displayCapitalOptions,
 } from '../../../../redux/features/quiz/quiz-slice';
 
@@ -11,7 +12,7 @@ type optionProps = {
     correctOption: string
 }
 
-const CountryOption: React.FC<optionProps> = ({countryName, correctOption}) => {
+const Option: React.FC<optionProps> = ({countryName, correctOption}) => {
     const dispatch = useAppDispatch();
     const [backGroundColor, setBackGroundColor] = useState("bg-white");
     const [nextStep, setNextStep] = useState(false);
@@ -41,6 +42,7 @@ const CountryOption: React.FC<optionProps> = ({countryName, correctOption}) => {
         setNextStep(true);
         if (countryName === correctOption) {
             dispatch(setCountryChoiceIsCorrect(true));
+            dispatch(incrementGoodAnswers());
         } else {
             setBackGroundColor("bg-red-500");
             dispatch(setCountryChoiceIsCorrect(false));
@@ -49,7 +51,7 @@ const CountryOption: React.FC<optionProps> = ({countryName, correctOption}) => {
 
     return (
         <button 
-            disabled={nextStep || timeIsOver}
+            disabled={countryIsChosen || timeIsOver}
             onClick={handleClick}
             className={`w-32 text-lg font-bold h-32 m-4 rounded bg-white p-2 ${backGroundColor}`}
         >
@@ -59,4 +61,4 @@ const CountryOption: React.FC<optionProps> = ({countryName, correctOption}) => {
 }
 
 
-export default CountryOption;
+export default Option;
