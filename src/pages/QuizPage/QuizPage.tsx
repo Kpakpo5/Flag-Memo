@@ -51,7 +51,7 @@ const QuizPage: React.FC = () => {
         const randomCountry = getRandomItem(relevantCountries);
         setCurrent(randomCountry)
         dispatch(setCurrentCountry(randomCountry));
-        dispatch(displayCountryOptions(true));
+        dispatch(displayCountryOptions());
         }
     }, [countries])
 

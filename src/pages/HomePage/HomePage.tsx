@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentZoneCountries } from "../../redux/features/countries/countries-slice";
@@ -8,10 +8,13 @@ import { resetQuiz, startQuiz } from "../../redux/features/quiz/quiz-slice";
 import { useFetchZoneCountriesQuery } from "../../redux/features/countries/countries-api-slice";
 import logo from '../../assets/images/app-logo.png';
 import ZoneSelector from "./ZoneSelector";
+import InfosModal from "./InfosModal";
 
 const HomePage: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     
     const currentZone = useAppSelector((state) => state.countries.currentZone);
     const { data, isFetching, isError } = useFetchZoneCountriesQuery(currentZone);
@@ -31,6 +34,10 @@ const HomePage: React.FC = () => {
         navigate("/quiz");
     }
 
+    const hideModal = () => {
+        setModalIsOpen(false);
+    }
+
     return (
         <div className="text-center">
             <div className="flex justify-center items-center">
@@ -44,9 +51,11 @@ const HomePage: React.FC = () => {
                 </div>
                 :
                 <div className="flex flex-col justify-center items-center ">
-                    <button className="flex justify-center items-center border-solid border-amber-500 bg-white border-4 rounded-full w-10 h-10 p-5  mt-8">
+                    <button 
+                        onClick={() => setModalIsOpen(true)}
+                        className="flex justify-center items-center border-solid border-amber-500 bg-white border-4 rounded-full w-10 h-10 p-5  mt-8">
                         <FontAwesomeIcon 
-                        className="text-3xl font-bold text-black italic "
+                            className="text-3xl font-bold text-black italic "
                             icon={faQuestion}
                         />
                     </button>
@@ -54,12 +63,16 @@ const HomePage: React.FC = () => {
                     <button 
                         disabled={isFetching }
                         onClick={handleClick}
-                        className="text-white font-extrabold px-8 py-4 mt-10 sm:mt-16 bg-amber-500 shadow-inner shadow-white"
+                        className="text-white font-extrabold px-8 py-4 mt-10 sm:mt-16 bg-amber-500 shadow-inner shadow-white outline outline-1 outline-offset-1 outline-amber-400 hover:outline-offset-2"
                     >
                         Démarrer le Quiz
                     </button>
                 </div>
             }
+            <InfosModal 
+                modalIsOpen={modalIsOpen}
+                closeModal={() => hideModal()}
+            />
         </div>
     );
 }

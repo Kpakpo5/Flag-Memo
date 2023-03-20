@@ -1,8 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setTimeIsOver, displayCapitalOptions, setNextRound, endQuiz} from "../../redux/features/quiz/quiz-slice";
 import { withdrawCurrentCountry } from "../../redux/features/countries/countries-slice";
+import {
+    displayCapitalOptions,
+    setNextRound,
+    endQuiz
+} from "../../redux/features/quiz/quiz-slice";
+
 
 const FlagContainer: React.FC<any> = ({currentFlag}) => {
     const navigate = useNavigate();
@@ -19,13 +24,11 @@ const FlagContainer: React.FC<any> = ({currentFlag}) => {
     useEffect (() => {
         if (countryOptionsAreDisplayed && timeIsOver) {
             setTimeout(() => {
-                dispatch(setTimeIsOver(false));
                 dispatch(displayCapitalOptions());
             }, 2500)
         }
         if (capitalOptionsAreDisplayed && timeIsOver) {
             setTimeout(() => {
-                dispatch(setTimeIsOver(false));
                 if(round >= quizLength) {
                     dispatch(endQuiz());
                     navigate("/resultats");

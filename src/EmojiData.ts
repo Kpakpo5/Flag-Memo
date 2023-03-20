@@ -15,14 +15,28 @@ import upset from './assets/emoji/upset.gif';
 import ok from './assets/emoji/ok.gif';
 
 const EmojiData = {
-  worst: [crying, shushing],
-  bad: [sad, wonder],
-  mediocre: [jaded, upset],
-  almost: [nope, frustrated],
-  good: [relieved, ok],
-  veryGood: [beaming, clapping],
-  excellent: [boss, clapping],
-  perfect: [omg, crown]
+
+  mediocre:{
+    msg: "Peux mieux faire! Il y a de la marge",
+    emojis : [crying, shushing],
+  },
+  notBad: {
+    comment: "Pas mal, tu as de la marge pour faire mieux",
+    emojis : [crying, shushing],
+  },
+  good: {
+    comment: "Bien joué! Tu assures",
+    emojis : [crying, shushing],
+  },
+  veryGood: {
+    comment: "Excellent! Tu t'en sors à merveille!",
+    emojis : [crying, shushing],
+  },
+  excellent: {
+    comment: "Quelle maîtrise! Quelle mémoire!",
+    emojis : [crying, shushing],
+  }
+
 }
 
 export default EmojiData;

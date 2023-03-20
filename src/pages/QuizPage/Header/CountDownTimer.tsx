@@ -15,6 +15,7 @@ const CountDownTimer: React.FC = () => {
     const countryChoiceIsCorrect = useAppSelector((state) => state.quiz.countryChoiceIsCorrect);
     const capitalIsChosen = useAppSelector((state) => state.quiz.capitalIsChosen);
     const capitalChoiceIsCorrect = useAppSelector((state) => state.quiz.capitalChoiceIsCorrect);
+    const choiceIsMade = useAppSelector((state) => state.quiz.choiceIsMade);
 
     useEffect(() => {
         const countDown = () => {
@@ -46,7 +47,7 @@ const CountDownTimer: React.FC = () => {
             }
             dispatch(resetSuccess())
         }
-        if(remainingSeconds === 0) {
+        if (!choiceIsMade && remainingSeconds === 0) {
             dispatch(setTimeIsOver(true));
         }
     }, [remainingSeconds, countryIsChosen, countryChoiceIsCorrect, capitalIsChosen, capitalChoiceIsCorrect]);

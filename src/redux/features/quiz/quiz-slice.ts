@@ -12,6 +12,7 @@ interface QuizState {
     capitalOptionsDisplay: boolean,
     capitalIsChosen: boolean,
     capitalChoiceIsCorrect: boolean,
+    choiceIsMade: boolean,
     timeIsOver: boolean,
     displayResultsPage: boolean
 }
@@ -28,6 +29,7 @@ const initialState: QuizState = {
     capitalOptionsDisplay: false,
     capitalIsChosen: false,
     capitalChoiceIsCorrect: null,
+    choiceIsMade: false,
     timeIsOver: false,
     displayResultsPage: false
 }
@@ -54,11 +56,12 @@ export const quizSlice = createSlice({
         incrementGoodAnswers : (state) => {
             state.goodAnswers ++;
         },
-        displayCountryOptions: (state, action: PayloadAction<boolean>) => {
-            state.countryOptionsDisplay = action.payload;
+        displayCountryOptions: (state) => {
+            state.countryOptionsDisplay = true;
         },
         setCountryIsChosen: (state, action: PayloadAction<boolean>) => {
             state.countryIsChosen = action.payload;
+            state.choiceIsMade = true;
         },
         setCountryChoiceIsCorrect: (state, action: PayloadAction<boolean>) => {
             state.countryChoiceIsCorrect = action.payload;
@@ -66,11 +69,14 @@ export const quizSlice = createSlice({
         displayCapitalOptions: (state) => {
             state.countryOptionsDisplay = false;
             state.countryIsChosen = false;
+            state.timeIsOver=false;
             state.countryChoiceIsCorrect = null;
             state.capitalOptionsDisplay = true;
+            state.choiceIsMade = false;
         },
         setCapitalIsChosen: (state, action: PayloadAction<boolean>) => {
             state.capitalIsChosen = action.payload;
+            state.choiceIsMade = true;
         },
         setCapitalChoiceIsCorrect: (state, action: PayloadAction<boolean>) => {
             state.capitalChoiceIsCorrect = action.payload;
@@ -88,7 +94,9 @@ export const quizSlice = createSlice({
         setNextRound: (state) => {
             state.capitalOptionsDisplay = false;
             state.capitalIsChosen = false;
+            state.timeIsOver = false;
             state.capitalChoiceIsCorrect = null;
+            state.choiceIsMade = false;
         },
         resetQuiz: (state) => {
             state.quizIsRunning =false;
@@ -102,6 +110,23 @@ export const quizSlice = createSlice({
             state.capitalOptionsDisplay = false,
             state.capitalIsChosen = false;
             state.capitalChoiceIsCorrect = null;
+            state.choiceIsMade = false;
+            state.timeIsOver = false;
+            state.displayResultsPage = false;
+        },
+        replay: (state) => {
+            state.quizIsRunning = true;
+            state.quizLength = 0;
+            state.score = 0;
+            state.goodAnswers = 0;
+            state.round = 0;
+            state.countryOptionsDisplay = false;
+            state.countryIsChosen = false;
+            state.countryChoiceIsCorrect = null;
+            state.capitalOptionsDisplay = false,
+            state.capitalIsChosen = false;
+            state.capitalChoiceIsCorrect = null;
+            state.choiceIsMade = false;
             state.timeIsOver = false;
             state.displayResultsPage = false;
         }
@@ -127,6 +152,7 @@ export const {
     setTimeIsOver,
     incrementRound,
     setNextRound,
+    replay,
     resetQuiz,
 } = quizSlice.actions;
 
