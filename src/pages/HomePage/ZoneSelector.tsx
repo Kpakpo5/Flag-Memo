@@ -74,17 +74,21 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
                     />
                 </div>
                 :
-                <div className="flex flex-col justify-between mt-10 w-full p-1 h-[30vh] bg-white">
-                    <div className="h-4/5">
-                        <img className="w-full h-full object-contain" src={currentOption.map}/>
-                    </div>  
-                    <p className="text-lg text-gray-600 font-bold italic">
-                        {currentOption.name} &#8658; 
-                        {currentOption.zone === "all"
-                            ? " Quiz de 10 drapeaux"
-                            : " Quiz de 7 drapeaux"
-                        }
-                    </p>
+                <div className="relative mt-10 w-full h-[30vh]">
+                    { currentOption &&
+                    <div className="absolute inset-0 flex flex-col justify-between p-1 h-[30vh] bg-white animate-spread">
+                        <div className="h-4/5">
+                            <img className="w-full h-full object-contain" src={currentOption.map}/>
+                        </div>  
+                        <p className="text-lg text-gray-600 font-bold italic">
+                            {currentOption.name} &#8658; 
+                            {currentOption.zone === "all"
+                                ? " Quiz de 10 drapeaux"
+                                : " Quiz de 7 drapeaux"
+                            }
+                        </p>
+                    </div> 
+                    }
                 </div>
             }
         </div>

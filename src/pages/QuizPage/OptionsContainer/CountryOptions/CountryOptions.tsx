@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../../redux/hooks";
 import CountryOption from "./Option";
 
-import { get3RandomItems } from "../../../../utils";
+import { get3RandomItems } from "../../../../helpers";
 
 const CountryOptions: React.FC = () => {
 
@@ -16,7 +16,7 @@ const CountryOptions: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <p className="text-white text-2xl font-bold mb-4">Pays ?</p>
+            <p className="text-white text-lg tracking-wider font-bold mb-4">PAYS ?</p>
             <div className="flex items-center justify-center flex-wrap">
                 {totalOptions.map(option =>
                 <CountryOption

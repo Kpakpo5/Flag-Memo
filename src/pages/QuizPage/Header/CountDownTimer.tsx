@@ -29,6 +29,7 @@ const CountDownTimer: React.FC = () => {
         }
 
         
+        
         const timer = setTimeout(countDown, 1000);
 
         if (countryIsChosen || capitalIsChosen) {

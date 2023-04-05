@@ -65,7 +65,7 @@ const Option: React.FC<optionProps> = ({capital, correctOption}) => {
         <button 
             disabled={capitalIsChosen || timeIsOver}
             onClick = {handleClick}
-            className={`w-80 text-lg font-bold h-12 m-4 rounded p-2 text-ellipsis ${backGroundColor}`}
+            className={`w-80 font-bold tracking-wide h-12 m-4 rounded p-2 text-ellipsis ${backGroundColor}`}
         >
             {capital}
         </button>

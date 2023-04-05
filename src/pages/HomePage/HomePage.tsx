@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
                 <div className="flex flex-col justify-center items-center ">
                     <button 
                         onClick={() => setModalIsOpen(true)}
-                        className="flex justify-center items-center border-solid border-amber-500 bg-white border-4 rounded-full w-10 h-10 p-5  mt-8">
+                        className="flex justify-center items-center border-solid border-amber-500 bg-white border-4 rounded-full w-10 h-10 p-5 mt-8">
                         <FontAwesomeIcon 
                             className="text-3xl font-bold text-black italic "
                             icon={faQuestion}

@@ -1,7 +1,7 @@
 import CapitalOption from "./Option";
 import { useAppSelector } from "../../../../redux/hooks"
 
-import { get3RandomItems } from "../../../../utils";
+import { get3RandomItems } from "../../../../helpers";
 
 const mockArray = ["Paris", "Buenos Aires", "Tokyo", "Togo"]
 
@@ -18,7 +18,7 @@ const CapitalOptions: React.FC = () => {
     
     return (
         <div className="flex flex-col items-center">
-            <p className="text-white text-2xl font-bold mb-4">Capitale ?</p>
+            <p className="text-white text-lg tracking-wider font-bold mb-4">CAPITALE ?</p>
             <div className="flex flex-col items-center justify-center flex-wrap">
                 {totalOptions.map( option =>
                 <CapitalOption

@@ -53,7 +53,24 @@ const Option: React.FC<optionProps> = ({countryName, correctOption}) => {
         <button 
             disabled={countryIsChosen || timeIsOver}
             onClick={handleClick}
-            className={`w-32 text-lg font-bold h-32 m-4 rounded bg-white p-2 text-ellipsis ${backGroundColor}`}
+            className={`w-32 font-bold tracking-wide h-32 m-4 rounded bg-white p-2
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            text-ellipsis ${backGroundColor}`}
         >
             {countryName}
         </button>

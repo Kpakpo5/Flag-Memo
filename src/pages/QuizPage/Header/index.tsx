@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
 
     return (
-        <div className="text-white bg-amber-300 bg-opacity-20 w-full flex items-center justify-between border-white border-y-2 mt-2 h-20 p-6 mb-8 md:border-x-2 md:rounded-full">
+        <div className="text-white bg-amber-300 bg-opacity-20 w-full flex items-center justify-between border-amber-400 border-y-2 mt-2 h-20 p-6 mb-8 md:border-x-2 md:rounded-full">
             <div className="flex flex-col items-center justify-center">
                 <span>{zoneName}</span>
                 <span className="tracking-wide font-bold">&#127937; {round}/{zoneName==="Monde"? 10 : 7}</span>

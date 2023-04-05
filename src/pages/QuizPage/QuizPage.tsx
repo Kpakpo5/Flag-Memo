@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { setCurrentCountry } from "../../redux/features/countries/countries-slice";
-import { displayCountryOptions, incrementRound, setQuizLength } from "../../redux/features/quiz/quiz-slice";
+import { displayCountryOptions, incrementRound, setQuizLength, setPotentialScore } from "../../redux/features/quiz/quiz-slice";
 
 import Header from "./Header";
 import OptionsContainer from "./OptionsContainer/OptionContainer";
 import FlagContainer from "./FlagContainer";
+import QuitButton from "./QuitButton";
 
-import { getRandomItem } from "../../utils";
+import { getRandomItem } from "../../helpers";
 
 const QuizPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -37,8 +38,10 @@ const QuizPage: React.FC = () => {
     useEffect(() => {
         if (currentZoneName === "Monde") {
             dispatch(setQuizLength(10));
+            dispatch(setPotentialScore(200));
         } else {
             dispatch(setQuizLength(7));
+            dispatch(setPotentialScore(140));
         }
     }, []);
   
@@ -59,11 +62,11 @@ const QuizPage: React.FC = () => {
     return (
         <div className="flex flex-col items-center w-full">
             <Header />
-        <div className="flex flex-col jutify-center items-center">
+        <div className="flex flex-col jutify-center items-center mb-24">
             {current && <FlagContainer currentFlag={current.flags.svg} />}
             <OptionsContainer />
         </div>
-            
+            <QuitButton />
         </div>
     )
 }

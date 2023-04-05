@@ -4,6 +4,7 @@ interface QuizState {
     quizIsRunning: boolean,
     quizLength: number,
     score: number,
+    potentialScore : number,
     goodAnswers: number,
     round: number,
     countryOptionsDisplay: boolean,
@@ -21,6 +22,7 @@ const initialState: QuizState = {
     quizIsRunning: false,
     quizLength: 0,
     score: 0,
+    potentialScore: 0,
     goodAnswers: 0,
     round: 0,
     countryOptionsDisplay: false,
@@ -52,6 +54,9 @@ export const quizSlice = createSlice({
         },
         setScore: (state, action: PayloadAction<number>) => {
             state.score += action.payload;
+        },
+        setPotentialScore : (state, action: PayloadAction<number>) => {
+            state.potentialScore = action.payload;
         },
         incrementGoodAnswers : (state) => {
             state.goodAnswers ++;
@@ -141,6 +146,7 @@ export const {
     quizIsOver,
     setQuizLength,
     setScore,
+    setPotentialScore,
     incrementGoodAnswers,
     displayCountryOptions,
     setCountryIsChosen,

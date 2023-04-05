@@ -30,8 +30,8 @@ export function handleEmojiDisplay (percent: number, data:any) {
     return data.good;
   }
   else if (percent >= 70 && percent < 90) {
-    return data.veryGood;
+    return data.excellent;
   }
-  else  return data.excellent;
+  else  return data.master;
  
 }
