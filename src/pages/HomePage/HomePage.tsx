@@ -7,7 +7,7 @@ import { setCurrentZoneCountries } from "../../redux/features/countries/countrie
 import { resetQuiz, startQuiz } from "../../redux/features/quiz/quiz-slice";
 import { useFetchZoneCountriesQuery } from "../../redux/features/countries/countries-api-slice";
 import logo from '../../assets/images/app-logo.png';
-import ZoneSelector from "./ZoneSelector";
+import ZoneSelector from "./Zones/ZoneSelector";
 import InfosModal from "./InfosModal";
 
 const HomePage: React.FC = () => {
@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
                 <div className="flex flex-col justify-center items-center ">
                     <button 
                         onClick={() => setModalIsOpen(true)}
-                        className="flex justify-center items-center border-solid border-amber-500 bg-white border-4 rounded-full w-10 h-10 p-5 mt-8">
+                        className="flex justify-center items-center border-solid border-amber-500 bg-stone-100 border-4 rounded-full w-10 h-10 p-5 mt-8">
                         <FontAwesomeIcon 
                             className="text-3xl font-bold text-black italic "
                             icon={faQuestion}

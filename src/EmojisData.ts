@@ -20,11 +20,11 @@ const EmojiData = {
     emojis : [phew, relieved],
   },
   good: {
-    comment: "Bien joué! Test passé avec succès.",
+    comment: "Bien joué! test passé avec succès.",
     emojis : [beaming, ok],
   },
   excellent: {
-    comment: "Excellent! Tu t'en sors à merveille!",
+    comment: "Excellent quiz! Tu t'en sors à merveille",
     emojis : [smirking, clapping],
   },
   master: {

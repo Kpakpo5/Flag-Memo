@@ -19,7 +19,7 @@ const Option: React.FC<optionProps> = ({capital, correctOption}) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     
-    const [backGroundColor, setBackGroundColor] = useState("bg-white");
+    const [backGroundColor, setBackGroundColor] = useState("bg-stone-100");
     const [ userHasClicked, setUserHasClicked] = useState(false);
     
     const capitalIsChosen = useAppSelector((state) => state.quiz.capitalIsChosen);
@@ -65,7 +65,7 @@ const Option: React.FC<optionProps> = ({capital, correctOption}) => {
         <button 
             disabled={capitalIsChosen || timeIsOver}
             onClick = {handleClick}
-            className={`w-80 font-bold tracking-wide h-12 m-4 rounded p-2 text-ellipsis ${backGroundColor}`}
+            className={`w-80 font-bold tracking-wide h-14 m-4 rounded p-2 text-gray-800 text-ellipsis overflow-hidden transition-colors duration-300 ${backGroundColor}`}
         >
             {capital}
         </button>

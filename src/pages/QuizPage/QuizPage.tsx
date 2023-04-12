@@ -62,7 +62,7 @@ const QuizPage: React.FC = () => {
     return (
         <div className="flex flex-col items-center w-full">
             <Header />
-        <div className="flex flex-col jutify-center items-center mb-24">
+        <div className="flex flex-col jutify-center items-center mb-32">
             {current && <FlagContainer currentFlag={current.flags.svg} />}
             <OptionsContainer />
         </div>
