@@ -14,7 +14,7 @@ type optionProps = {
 
 const Option: React.FC<optionProps> = ({countryName, correctOption}) => {
     const dispatch = useAppDispatch();
-    const [backGroundColor, setBackGroundColor] = useState("bg-white");
+    const [backGroundColor, setBackGroundColor] = useState("bg-stone-100");
     const [nextStep, setNextStep] = useState(false);
 
     const countryIsChosen = useAppSelector((state) => state.quiz.countryIsChosen);
@@ -53,24 +53,7 @@ const Option: React.FC<optionProps> = ({countryName, correctOption}) => {
         <button 
             disabled={countryIsChosen || timeIsOver}
             onClick={handleClick}
-            className={`w-32 font-bold tracking-wide h-32 m-4 rounded bg-white p-2
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            text-ellipsis ${backGroundColor}`}
+            className={`w-32 font-bold tracking-wide h-32 m-4 rounded p-2 text-ellipsis text-gray-800 overflow-hidden transition-colors duration-300 ${backGroundColor}`}
         >
             {countryName}
         </button>

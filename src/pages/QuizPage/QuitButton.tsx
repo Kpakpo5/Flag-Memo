@@ -10,7 +10,7 @@ const QuitButton: React.FC = () => {
         <>
         <button 
             onClick={() => setModalIsOpen(true)}
-            className="bg-red-600 px-7 py-3 m-4 rounded text-white font-bold">
+            className="bg-red-600 px-4 py-2 m-4 rounded-2xl text-white font-bold outline outline-1 outline-white outline-offset-1">
             Abandonner
         </button>
         {modalIsOpen && 

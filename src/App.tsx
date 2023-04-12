@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import QuizPage from './pages/QuizPage/QuizPage';
-import ResultsPage from './pages/ResultsPage';
+import ResultsPage from './pages/ResultsPage/ResultsPage';
 
 const App: React.FC = () => {
   return (

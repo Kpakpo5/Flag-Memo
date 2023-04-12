@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import Zone from "./Zone";
-import worldMap from "../../assets/images/world.png";
-import africaMap from "../../assets/images/africa.png";
-import americasMap from "../../assets/images/americas.png";
-import asiaMap from "../../assets/images/asia.png";
-import europeMap from "../../assets/images/europe.png";
-import oceaniaMap from "../../assets/images/oceania.png";
+import worldMap from "../../../assets/images/world.png";
+import africaMap from "../../../assets/images/africa.png";
+import americasMap from "../../../assets/images/americas.png";
+import asiaMap from "../../../assets/images/asia.png";
+import europeMap from "../../../assets/images/europe.png";
+import oceaniaMap from "../../../assets/images/oceania.png";
 
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../../redux/hooks";
 
 const zoneOptions = [
     {
@@ -76,7 +76,7 @@ const ZoneSelector: React.FC<{isFetching:boolean}> = ({isFetching}) => {
                 :
                 <div className="relative mt-10 w-full h-[30vh]">
                     { currentOption &&
-                    <div className="absolute inset-0 flex flex-col justify-between p-1 h-[30vh] bg-white animate-spread">
+                    <div className="absolute inset-0 flex flex-col justify-between p-1 h-[30vh] bg-stone-100 animate-spread">
                         <div className="h-4/5">
                             <img className="w-full h-full object-contain" src={currentOption.map}/>
                         </div>  
